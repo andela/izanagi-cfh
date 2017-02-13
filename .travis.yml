@@ -3,4 +3,4 @@ node_js: "stable"
 script: gulp
 addons:
     code_climate:
-        repo_token: 3af55c89246428166253ce9ff72bc4c779b2f73f4e1061db9f48c2ab41821db6
+        repo_token: 9QbsWNLCMgin3h9jigr4
