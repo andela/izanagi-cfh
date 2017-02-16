@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/andela/izanagi-cfh.svg?branch=master)](https://travis-ci.org/andela/izanagi-cfh)
+[![Build Status](https://travis-ci.org/andela/izanagi-cfh.svg?branch=staging)](https://travis-ci.org/andela/izanagi-cfh)
 
 Cards for Humanity - [http://cfh.io](http://cfh.io)
 ===========
