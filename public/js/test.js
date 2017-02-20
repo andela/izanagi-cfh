@@ -1,1 +1,1 @@
-const invertedIndex = () => true;
+const invertedIndex = function ()  {true};
