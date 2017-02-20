@@ -1,6 +1,9 @@
 node_modules
 public/lib
+./config/bower_components
+./config/env
 .sass-cache/
 .DS_store
 c4h_keys.txt
+
 
