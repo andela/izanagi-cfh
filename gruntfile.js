@@ -60,11 +60,10 @@ module.exports = function(grunt) {
                 logConcurrentOutput: true
             }
         },
-        mochaTest: {
-            options: {
-                reporter: 'spec'
-            },
-            src: ['test/**/*.js']
+        karma: {
+            unit: {
+                configFile: 'karma.conf.js'
+            }
         },
         sass: {
             dist: {
