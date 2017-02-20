@@ -1,0 +1,1 @@
+const invertedIndex = () => true;
