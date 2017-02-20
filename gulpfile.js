@@ -2,17 +2,18 @@
 const gulp = require('gulp');
 const browserSync = require('browser-sync');
 const liveReload = browserSync.create().reload;
-// changed from jshint to eslint 
+// changed from jshint to eslint
 const eslint = require('gulp-eslint');
 const nodemon = require('gulp-nodemon');
 const bower = require('gulp-bower');
+const mocha = require('gulp-mocha');
 
 
 /*nodemon task to start server.js*/
 gulp.task('nodemon', () => {
     nodemon({ script: 'server.js', ext: 'js' });
 });
-/*browser-sync task to observe 
+/*browser-sync task to observe
 reloads on file changes
 USAGE: "gulp browserSync"*/
 gulp.task('browserSync', ['nodemon'], () => {
@@ -56,7 +57,7 @@ gulp.task('watch', ['browserSync'], () => {
     gulp.watch('app/views', liveReload);
 
     //watch for changes in js files and update
-    //but do that only after 
+    //but do that only after
     gulp.watch(['public/js/**',
         'app/**/*.js'
     ], ['jshint', liveReload]);
@@ -72,10 +73,10 @@ gulp.task('watch', ['browserSync'], () => {
 
 /*linting task
 USAGE: "gulp lint"
-runing "gulp lint" throws 
+runing "gulp lint" throws
 NO ESLint CONFIGURATION Error
-Update .eslintrc.json to use 
-and set .eslintrcignore configurations 
+Update .eslintrc.json to use
+and set .eslintrcignore configurations
 where applicable*/
 gulp.task('lint', () => {
     return gulp.src(['gruntfile.js',
