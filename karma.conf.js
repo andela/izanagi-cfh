@@ -10,7 +10,8 @@ module.exports = function(config) {
     plugins: [
             'karma-jasmine',
             'karma-chrome-launcher',
-            'karma-firefox-launcher'
+            'karma-firefox-launcher',
+            'karma-requirejs'
           ],
 
     // frameworks to use
@@ -20,7 +21,7 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-      'test/article/*.js'
+      'test/game/*.js'
     ],
 
 
