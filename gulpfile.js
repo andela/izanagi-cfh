@@ -12,7 +12,6 @@ const bower = require('gulp-bower');
 gulp.task('nodemon', () => {
     nodemon({ script: 'server.js', ext: 'js' });
 });
-
 /*browser-sync task to observe 
 reloads on file changes
 USAGE: "gulp browserSync"*/
