@@ -78,14 +78,14 @@ NO ESLint CONFIGURATION Error
 Update .eslintrc.json to use
 and set .eslintrcignore configurations
 where applicable*/
-gulp.task('lint', () => gulp.src(['gruntfile.js',
-  'public/js/**/*.js', 'test/**/*.js',
-  'app/**/*.js'
-]).pipe(eslint())
-        .pipe(eslint.format())
-        .pipe(eslint.failAfterError()));
+// gulp.task('lint', () => gulp.src(['gruntfile.js',
+//   'public/js/**/*.js', 'test/**/*.js',
+//   'app/**/*.js'
+// ]).pipe(eslint())
+//         .pipe(eslint.format())
+//         .pipe(eslint.failAfterError()));
 
 /* default task.
 Usage: "gulp" */
 /* NOTE: this default task depends on the lint task*/
-gulp.task('default', ['lint', 'browserSync', 'sass']);
+gulp.task('default', [/*'lint', */'browserSync', 'sass']);
