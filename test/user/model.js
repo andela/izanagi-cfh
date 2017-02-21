@@ -40,8 +40,8 @@ describe('<Unit Test>', function() {
             });
         });
 
-        // after(function(done) {
-        //     done();
-        // });
+        after(function(done) {
+            done();
+        });
     });
 });
