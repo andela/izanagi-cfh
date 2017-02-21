@@ -60,11 +60,10 @@ module.exports = function(grunt) {
                 logConcurrentOutput: true
             }
         },
-        mochaTest: {
-            options: {
-                reporter: 'spec'
-            },
-            src: ['test/**/*.js']
+        karma: {
+            unit: {
+                configFile: 'karma.conf.js'
+            }
         },
         sass: {
             dist: {
@@ -92,7 +91,8 @@ module.exports = function(grunt) {
     //Load NPM tasks 
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-jshint');
-    grunt.loadNpmTasks('grunt-mocha-test');
+    //grunt.loadNpmTasks('grunt-mocha-test');
+    grunt.loadNpmTasks('grunt-karma');
     grunt.loadNpmTasks('grunt-nodemon');
     grunt.loadNpmTasks('grunt-concurrent');
     grunt.loadNpmTasks('grunt-contrib-sass');
@@ -102,10 +102,10 @@ module.exports = function(grunt) {
     grunt.option('force', true);
 
     //Default task(s).
-    grunt.registerTask('default', ['jshint', 'concurrent', 'sass']);
+    grunt.registerTask('default', ['jshint', 'karma', 'concurrent', 'sass']);
 
     //Test task.
-    grunt.registerTask('test', ['mochaTest']);
+    grunt.registerTask('test', ['karma']);
 
     //Bower task.
     grunt.registerTask('install', ['bower']);
