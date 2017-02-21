@@ -1,12 +1,13 @@
 language: node_js
 
 node_js:
-  - node
+  - "4"
 
+services:
+  - mongodb
 before_script:
- - npm install -g codeclimate-test-reporter
-addons:
-  code_climate:
+  - sleep 15
+  - mongo mydb_test --eval 'db.addUser("travis", "test");'
 
 before_install:
   - export CHROME_BIN=google-chrome
@@ -16,4 +17,3 @@ before_install:
 before_script:
   - npm install
 
-script: npm test
