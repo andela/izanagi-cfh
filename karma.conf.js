@@ -10,7 +10,8 @@ module.exports = function(config) {
     plugins: [
             'karma-jasmine',
             'karma-firefox-launcher',
-            'karma-requirejs'
+            'karma-requirejs',
+            'karma-chrome-launcher'
           ],
 
     // frameworks to use
@@ -20,8 +21,7 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-      'public/js/test.js',
-      'test/*.js'
+      
     ],
 
 
@@ -64,7 +64,7 @@ module.exports = function(config) {
 
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-    browsers: ['Firefox'],
+    browsers: ['chrome'],
 
 
     // Continuous Integration mode
