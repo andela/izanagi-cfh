@@ -3,23 +3,17 @@ language: node_js
 node_js:
   - "4"
 
+services:
+  - mongodb
 before_script:
- - npm install -g codeclimate-test-reporter
-addons:
-  code_climate:
+  - sleep 15
+  - mongo mydb_test --eval 'db.addUser("travis", "test");'
 
 before_install:
   - export CHROME_BIN=google-chrome
   - export DISPLAY=:99.0
   - sh -e /etc/init.d/xvfb start
-services:
-  - mongodb
-
-before_script:
-  - sleep 15
-  - mongo mydb_test --eval 'db.addUser("travis", "test");'
 
 before_script:
   - npm install
 
-script: npm test
