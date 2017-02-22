@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/andela/izanagi-cfh.svg?branch=staging)](https://travis-ci.org/andela/izanagi-cfh)
+[![Coverage Status](https://coveralls.io/repos/github/andela/izanagi-cfh/badge.svg?branch=staging)](https://coveralls.io/github/andela/izanagi-cfh?branch=staging)
 
 Cards for Humanity - [http://cfh.io](http://cfh.io)
 ===========
