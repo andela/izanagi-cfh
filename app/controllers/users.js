@@ -4,6 +4,8 @@
 var mongoose = require('mongoose'),
   User = mongoose.model('User');
 var avatars = require('./avatars').all();
+var jwt = require('jsonwebtoken');
+var secret = 'undercover';
 
 /**
  * Auth callback
@@ -30,7 +32,10 @@ exports.signup = function(req, res) {
   if (!req.user) {
     res.redirect('/#!/signup');
   } else {
-    res.redirect('/#!/app');
+    console.table('My user------------->', req.user);
+    var token = jwt.sign({ name: req.body.name }, secret);
+    console.log(token);
+    // res.redirect('/#!/app');
   }
 };
 
