@@ -7,8 +7,10 @@ const browserSync = require('browser-sync');
 const eslint = require('gulp-eslint');
 const nodemon = require('gulp-nodemon');
 const bower = require('gulp-bower');
-const mocha = require('gulp-mocha');
+// const mocha = require('gulp-mocha');
 const sass = require('gulp-sass');
+const Server = require('karma').Server;
+const path = require('path');
 
 const liveReload = browserSync.create().reload;
 
@@ -42,12 +44,20 @@ gulp.task('install', () => bower()
 
 /* mochaTest task
 USAGE: "gulp mochaTest"*/
-gulp.task('test', () => {
-  gulp.src('test/**/*.js', { read: false })
-        .pipe(mocha({ reporter: 'spec' }))
-        .once('end', () => {
-          process.exit();
-        });
+// gulp.task('test', () => {
+//   gulp.src('test/**/*.js', { read: false })
+//         .pipe(mocha({ reporter: 'spec' }))
+//         .once('end', () => {
+//           process.exit();
+//         });
+// });
+/* karma task
+USAGE: "gulp test"*/
+gulp.task('test', (done) => {
+  new Server({
+    configFile: path.join(__dirname, 'karma.conf.js'),
+    singleRun: true
+  }, done).start();
 });
 
 /* task that watches all files
@@ -78,12 +88,12 @@ NO ESLint CONFIGURATION Error
 Update .eslintrc.json to use
 and set .eslintrcignore configurations
 where applicable*/
-// gulp.task('lint', () => gulp.src(['gruntfile.js',
-//   'public/js/**/*.js', 'test/**/*.js',
-//   'app/**/*.js'
-// ]).pipe(eslint())
-//         .pipe(eslint.format())
-//         .pipe(eslint.failAfterError()));
+gulp.task('lint', () => gulp.src(['gruntfile.js',
+  'public/js/**/*.js', 'test/**/*.js',
+  'app/**/*.js'
+]).pipe(eslint())
+        .pipe(eslint.format())
+        .pipe(eslint.failAfterError()));
 
 /* default task.
 Usage: "gulp" */
