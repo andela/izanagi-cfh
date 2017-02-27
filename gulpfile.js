@@ -42,15 +42,7 @@ USAGE: "gulp lint"*/
 gulp.task('install', () => bower()
         .pipe(gulp.dest('./public/lib/')));
 
-/* mochaTest task
-USAGE: "gulp mochaTest"*/
-// gulp.task('test', () => {
-//   gulp.src('test/**/*.js', { read: false })
-//         .pipe(mocha({ reporter: 'spec' }))
-//         .once('end', () => {
-//           process.exit();
-//         });
-// });
+
 /* karma task
 USAGE: "gulp test"*/
 gulp.task('test', (done) => {
