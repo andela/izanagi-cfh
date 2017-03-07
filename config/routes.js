@@ -9,7 +9,7 @@ module.exports = function(app, passport, auth) {
     app.get('/signout', users.signout);
 
     //Setting up the users api
-    app.post('/users', users.create);
+    app.post('/api/auth/signup', users.create);
     app.post('/users/avatars', users.avatars);
 
     // Donation Routes
