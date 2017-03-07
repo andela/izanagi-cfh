@@ -1,5 +1,5 @@
 angular.module('mean.system')
-.controller('IndexController', ['$scope', 'Global', '$location', 'socket', 'game', 'AvatarService', function ($scope, Global, $location, socket, game, AvatarService) {
+.controller('IndexController', ['$scope', '$location', '$http', 'Global', 'socket', 'game', 'AvatarService', ($scope, $location, $http, Global, socket, game, AvatarService) => {
     $scope.global = Global;
 
     $scope.playAsGuest = function() {
@@ -12,6 +12,29 @@ angular.module('mean.system')
         return $location.search().error;
       } else {
         return false;
+      }
+    };
+
+    $scope.signup = () => {
+      if (!$scope.name || !$scope.email || !$scope.password) {
+        const error = {
+          data: { message: 'Please fill in your username, email and password' }
+        };
+        $scope.showError();
+        $scope.error = error;
+      } else {
+        const newuser = {
+          name: $scope.name,
+          email: $scope.email,
+          password: $scope.password
+        };
+
+        $http.post('/api/auth/signup', newuser).then(() => {
+          $location.path('/app');
+        }, (err) => {
+          $scope.showError();
+          $scope.error = err;
+        });
       }
     };
 
