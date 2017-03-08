@@ -46,28 +46,34 @@ $('.tab a').on('click', function (e) {
 </script>
 
  <!-- Fixed Logo & Menu Bar Start -->
-<nav class="navbar navbar-inverse navbar-fixed-top">
-    <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-        <a class="navbar-brand" href="#">
-        <p class="my-logo"><span style="color: cyan">C</span><span style="color: orange">F</span><span style="color: #b30000">H</span></p>
-        </a>
+<div id="top-part">
+        <div class="wpb-top-bar">
+            <div class="mod-contain" id="navver">
+                <div class="row">
+                    <!-- Logo -->
+                    <div class="wpb-logo-container">
+                        <div id="landing-logo">
+                            <span id="first-word">Cards</span>
+                            <span id="second-word"> for</span>
+                            <span id="third-word">Humanity</span>
+                        </div>
+                        <div class="col-md-9 wpb-menu-container">
+                            <ul class="wpb-main-menu">
+                                <li><a href="#!/">Home</a></li>
+                                <span ng-hide="showOptions">
+                                    <li><a href="#!/signup">Sign Up</a></li>
+                                    <li><a href="#!/signin">Sign In</a></li>
+                                </span>
+                                <span ng-show="showOptions">
+                                    <li><a href="/signout">Sign Out</a></li>
+                                </span>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav navbar-right">
-        <li class="active"><a href="#home">HOME</a></li>
-        <li><a href="#howtoplay">HOW TO PLAY</a></li>
-        <li><a href="#charity" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> CHARITY</a>
-        <li><a href="#">ABOUT US</a></li>
-        <li><a class="btn btn-success btn-sm" href="#" style="color:black">SIGN IN</a></li>
-        </li>
-        </ul>
-    </div><!-- /.navbar-collapse -->
-    </div><!-- /.container-fluid -->
-</nav>
 <!-- Fixed Logo & Menu Bar End -->
 <div class="form" id="signindiv">
     <ul class="tab-group">
