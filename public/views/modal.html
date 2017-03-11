@@ -1,0 +1,13 @@
+<div class="modal-dialog {{size ? 'modal-' + size : ''}}">
+  <div class="modal-content">
+    <div class="modal-header">
+        <h3 class="modal-title" id="modal-title">Game Information</h3>
+    </div>
+    <div class="modal-body" id="modal-body">
+        <p>{{errorBody}}</p>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-primary" type="button" ng-click="closeModal()">OK</button>
+    </div>
+  </div>
+</div>
