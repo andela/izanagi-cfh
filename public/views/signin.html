@@ -45,33 +45,36 @@ $('.tab a').on('click', function (e) {
 
 </script>
  <!-- Fixed Logo & Menu Bar Start -->
-	<nav class="navbar navbar-inverse navbar-fixed-top">
-	  	<div class="container-fluid">
-	    <!-- Brand and toggle get grouped for better mobile display -->
-	    <div class="navbar-header">
-	      <a class="navbar-brand" href="#">
-	      	<p class="my-logo"><span style="color: cyan">C</span><span style="color: orange">F</span><span style="color: #b30000">H</span></p>
-	      </a>
-	    </div>
+	<!-- Navigation -->
+<div ng-controller="IndexController">
+    <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+                    Menu <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand page-scroll" href="#!/page-top">
+                    Cards for Humanity
+                </a>
+            </div>
 
-	    <!-- Collect the nav links, forms, and other content for toggling -->
-	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-	      <ul class="nav navbar-nav navbar-right">
-	        <li class="active"><a href="#home">HOME</a></li>
-	        <li><a href="#howtoplay">HOW TO PLAY</a></li>
-	        <li><a href="#charity" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> CHARITY</a>
-	        <li><a href="#">ABOUT US</a></li>
-	        <li><a class="btn btn-success btn-sm" href="#" style="color:black">SIGN IN</a></li>
-	        </li>
-	      </ul>
-	    </div><!-- /.navbar-collapse -->
-	  </div><!-- /.container-fluid -->
-	</nav>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="#!/page-top">Home</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
  <!-- Fixed Logo & Menu Bar Start -->
 
 <div class="form" id="signindiv">
     <ul class="tab-group">
-        <li class="tab active"><a href="#login">Log In</a></li>
+        <li class="tab active"><a href="#login" ng-click="logIn()">Log In</a></li>
         <li class="tab"><a href="#signup">Sign Up</a></li>
     </ul>
 
@@ -142,3 +145,4 @@ $('.tab a').on('click', function (e) {
 
 </div>
 <!-- /form -->
+</div>
