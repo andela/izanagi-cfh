@@ -1,6 +1,7 @@
 angular.module('mean.system')
 .controller('IndexController', ['$scope', '$location', '$window', '$http', 'Global', 'socket', 'game', 'AvatarService', ($scope, $location, $window, $http, Global, socket, game, AvatarService) => {
     $scope.global = Global;
+    $scope.signupErrMsg = '';
 
     $scope.playAsGuest = function() {
       game.joinGame();
@@ -33,6 +34,7 @@ angular.module('mean.system')
           $window.localStorage.setItem('token', response.data.token);
           $location.path('/app');
         }, (err) => {
+          $scope.signupErrMsg = err.data.message;
           $scope.showError();
           $scope.error = err;
         });
