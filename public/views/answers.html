@@ -69,21 +69,51 @@
       <!-- <script type="text/javascript" src="https://apisandbox.crowdrise.com/widgets/donate/project/36715/?callback=userDonationCb"></script> -->
   </div>
 </div>
-<div id="czar-blank-container" ng-show="isCzar() && game.table.length===0 && game.state !== 'game dissolved' && game.state !== 'awaiting players'">
-  <div id="czar-blank-inner">
-    You are the Card Czar. <br>
-    <span id="smaller-text">Players are choosing their answers. Prepare to select a winner.</span>
-  </div>
-  <div id='charity-fact-container'>
-    <div id='charity-fact-tagline'>Did you know?</div>
-
-    <div id='charity-fact'>
-       {{ makeAWishFact }}
+<div class="container" id="czar-blank-container" ng-show="isCzar() && game.table.length===0 && game.state !== 'game dissolved' && game.state !== 'awaiting players'">
+    <div class="row center" ng-show= "game.state === 'pick black card'">
+      <div class="col-md-2 col-md-offset-1">
+        <div class="col-md-3 card-face">
+          <div class="cards-group">
+            <div class="card-load right" style="display: none" id="card-1"></div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-2 col-md-offset-1" id="reveal" ng-click="flipCards()">
+          <div class="col-md-3 card-face">
+            <div class="text-center flip">
+              <div class="cards-group">
+                <div class="card-mem right" id="flip-card"></div>
+                <div class="card-mem left"></div>
+                <div class="card-mem right"></div>
+                <div class="card-mem left"></div>
+                <div class="card-mem right"></div>
+                <div class="card-mem left"></div>
+              </div>
+            </div>
+          </div>
+      </div>
+      <div class="col-md-2 col-md-offset-1">
+        <div class="col-md-3 card-face">
+          <div class="cards-group">
+            <div class="card-load right" style="display: none" id="card-2"></div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-2 col-md-offset-1">
+        <div class="col-md-3 card-face">
+          <div class="cards-group">
+            <div class="card-load right" style="display: none" id="card-3"></div>
+          </div>
+        </div>
+      </div>
     </div>
-
-    <div id='charity-logo-container'>
-      <img src='/img/make-a-wish-logo.png'/>
+    <div ng-show= "game.state === 'waiting for players to pick'">
+      <span id="smaller-text">Players are choosing their answers. Prepare to select a winner.</span>
+        <div id='charity-fact-container'>
+          <div id='charity-fact-tagline'>Did you know?</div>
+          <div id='charity-fact'>{{makeAWishFact }}</div
+          <div id='charity-logo-container'>
+            <img src='/img/make-a-wish-logo.png'/>
+          </div>
+      </div>
     </div>
-
-  </div>
-</div>
