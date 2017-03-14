@@ -6,6 +6,10 @@
    text-transform: uppercase;
  }
 
+ .errMsg {
+    margin-bottom: 20px;
+ }
+
  #landing-charity {
    width: 300px !important;
    margin-left: 15px !important;
@@ -1434,7 +1438,7 @@ textarea {
 /* NEW STYLES */
 
 html {
-	background: url(img.jpg) no-repeat center center fixed; 
+	background: url(img.jpg) no-repeat center center fixed;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
@@ -1450,17 +1454,17 @@ body {
 .margin-base-vertical {
 	margin: 10px 0;
 }
-	
+
 
 h1 {
 	font-family: "Abel", Arial, sans-serif;
-	font-weight: 400;			
+	font-weight: 400;
 	font-size: 50px;
 	color: darkslategray;
 }
 h3 {
 	font-family: "Abel", Arial, sans-serif;
-	font-weight: 200;			
+	font-weight: 200;
 	font-size: 40px;
 }
 .panel {
@@ -1471,7 +1475,7 @@ h3 {
 	margin-top: 90px;
 	padding: 20px 100px;
 	margin-bottom: 70px;
-	
+
 	/*margin-left: 10px;*/
 }
 .btn-green{
@@ -1537,10 +1541,10 @@ h3 {
 	margin-top: -3px;
 	font-weight: 120px;
 	color: black;
-} 
+}
 #donate-now{
 	display: inline;
-	
+
 }
 #a-donate{
 	font-size: 20px;
