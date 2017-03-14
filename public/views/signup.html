@@ -60,11 +60,11 @@ $('.tab a').on('click', function (e) {
                         <div class="col-md-9 wpb-menu-container">
                             <ul class="wpb-main-menu">
                                 <li><a href="#!/">Home</a></li>
-                                <span ng-show="showOptions">
+                                <span ng-hide="showOptions">
                                     <li><a href="#!/signup">Sign Up</a></li>
                                     <li><a href="#!/signin">Sign In</a></li>
                                 </span>
-                                <span ng-hide="showOptions">
+                                <span ng-show="showOptions">
                                     <li><a href="/signout">Sign Out</a></li>
                                 </span>
                             </ul>
@@ -82,33 +82,34 @@ $('.tab a').on('click', function (e) {
     </ul>
 
     <div class="tab-content">
-        <div id="signup">
+        <div id="signup" ng-controller="IndexController">
             <h1>Sign Up for Free</h1>
 
-            <form action="/" method="post">
+            <form>
 
+                <div class="text-center text-danger">{{ signupErrMsg }}</div>
                 <div class="field-wrap">
                     <label>
                 Your Name<span class="req">*</span>
               </label>
-                    <input type="text" required autocomplete="off" />
+                    <input type="text" ng-model="name" required autocomplete="off" />
                 </div>
 
                 <div class="field-wrap">
                     <label>
               Email Address<span class="req">*</span>
             </label>
-                    <input type="email" required autocomplete="off" />
+                    <input type="email" ng-model="email" required autocomplete="off" />
                 </div>
 
                 <div class="field-wrap">
                     <label>
               Set A Password<span class="req">*</span>
             </label>
-                    <input type="password" required autocomplete="off" />
+                    <input type="password" ng-model="password" required autocomplete="off" />
                 </div>
 
-                <button type="submit" class="button button-block">Get Started</button>
+                <button type="submit" ng-click="signup()" class="button button-block">Get Started</button>
 
             </form>
 
@@ -117,7 +118,7 @@ $('.tab a').on('click', function (e) {
         <div id="login">
             <h1>Welcome Back!</h1>
 
-            <form action="/" method="post">
+            <form action="/app" method="post">
 
                 <div class="field-wrap">
                     <label>

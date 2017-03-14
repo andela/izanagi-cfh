@@ -37,11 +37,11 @@
 								<li><a onClick="scroll(0,0)">Home</a></li>
 								<li><a onClick="scroll(0,700);">How to Play</a></li>
 								<li><a onClick="scroll(0,1350);">Charity</a></li>
-								<span ng-show="showOptions">
+								<span ng-show="!showOptions">
 									<li><a href="#!/signup">Sign Up</a></li>
 									<li><a href="#!/signin">Sign In</a></li>
 								</span>
-								<span ng-hide="showOptions">
+								<span ng-show="showOptions">
 								<li><a href="/signout">Sign Out</a></li>
 								</span>
 							</ul>
@@ -70,7 +70,7 @@
 			<p class="text-center">
 				<a href="/signup" class="btn btn-success btn-lg" role="button"> SIGN UP </a>
 				<a href="/play" class="btn btn-danger btn-lg" role="button"> PLAY AS GUEST </a>
-				<a href="" class="btn btn-danger btn-lg" role="button"> PLAY WITH FRIENDS </a>
+				<a href="/play?custom" class="btn btn-danger btn-lg" role="button"> PLAY WITH FRIENDS </a>
 			</p>
 		</div>
 
