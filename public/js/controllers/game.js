@@ -1,5 +1,5 @@
 angular.module('mean.system')
-.controller('GameController', ['$scope', 'game', '$timeout', '$location', 'MakeAWishFactsService', '$dialog', function ($scope, game, $timeout, $location, MakeAWishFactsService, $dialog) {
+.controller('GameController', ['$scope', 'game', '$timeout', '$location', 'MakeAWishFactsService', function ($scope, game, $timeout, $location, MakeAWishFactsService) {
     $scope.hasPickedCards = false;
     $scope.winningCardPicked = false;
     $scope.showTable = false;
@@ -171,6 +171,25 @@ angular.module('mean.system')
         }
       }
     });
+
+  $scope.startNextRound = () => {
+    if ($scope.isCzar()) {
+      game.startNextRound();
+    }
+  };
+  $scope.flipCards = () => {
+    const cardOne = document.getElementById('card-1');
+    const cardTwo = document.getElementById('card-2');
+    const cardThree = document.getElementById('card-3');
+    const reveal = document.getElementById('reveal');
+    cardOne.style.display = 'block';
+    cardTwo.style.display = 'block';
+    reveal.style.display = 'none';
+    cardThree.style.display = 'block';
+    $timeout(() => {
+      $scope.startNextRound();
+    }, 6000);
+  };
 
     if ($location.search().game && !(/^\d+$/).test($location.search().game)) {
       console.log('joining custom game');
