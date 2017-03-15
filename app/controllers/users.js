@@ -4,6 +4,7 @@
 var mongoose = require('mongoose'),
   User = mongoose.model('User');
 var avatars = require('./avatars').all();
+const jwt = require('jsonwebtoken');
 
 /**
  * Auth callback
@@ -13,15 +14,39 @@ exports.authCallback = function(req, res, next) {
 };
 
 /**
- * Show login form
- */
-exports.signin = function(req, res) {
-  if (!req.user) {
-    res.redirect('/#!/signin?error=invalid');
-  } else {
-    res.redirect('/#!/app');
-  }
-};
+ +/**
+   * Show login form
+   */
+  exports.signin = function(req, res) {
+
+     if (req.body.email && req.body.password) {
+     User.findOne({ email: req.body.email }).exec((err, existingUser) => {
+       if(err) throw err;
+
+       if (!existingUser) {
+          return res.json({ success: false, message: 'Invalid email or password' });
+       } else if (existingUser) {
+         if (req.body.password) {
+           var validPassword = existingUser.authenticate(req.body.password);
+         } else {
+            return res.json({ success: false, message: 'No password provided' });
+         }
+         if (!validPassword) {
+           return res.json({ success: false, message: 'Invalid email or password' });
+         } else {
+
+            return res.status(200).json({
+             success: true,
+             message: 'User successfully logged in',
+             "token":  jwt.sign({ id: existingUser.id }, process.env.SECRETKEY, {expiresIn: 60 * 60 * 24 * 7})
+            });
+         }
+
+       }
+
+     });
+   }
+  };
 
 /**
  * Show sign up form
@@ -49,7 +74,7 @@ exports.session = function(req, res) {
   res.redirect('/');
 };
 
-/** 
+/**
  * Check avatar - Confirm if the user who logged in via passport
  * already has an avatar. If they don't have one, redirect them
  * to our Choose an Avatar page.
@@ -76,34 +101,54 @@ exports.checkAvatar = function(req, res) {
 /**
  * Create user
  */
-exports.create = function(req, res) {
+exports.create = (req, res) => {
   if (req.body.name && req.body.password && req.body.email) {
     User.findOne({
       email: req.body.email
-    }).exec(function(err,existingUser) {
+    }).exec((err, existingUser) => {
       if (!existingUser) {
-        var user = new User(req.body);
+        const user = new User(req.body);
         // Switch the user's avatar index to an actual avatar url
         user.avatar = avatars[user.avatar];
         user.provider = 'local';
-        user.save(function(err) {
+        user.save((err) => {
           if (err) {
-            return res.render('/#!/signup?error=unknown', {
-              errors: err.errors,
-              user: user
+            return res.status(400).json({
+              success: false,
+              message: 'Unable to save user'
             });
           }
-          req.logIn(user, function(err) {
-            if (err) return next(err);
-            return res.redirect('/#!/');
+          req.logIn(user, (err) => {
+            if (err) {
+              res.status(400).json({
+                success: false,
+                message: 'Unable to login',
+              });
+            } else {
+              const token = jwt.sign({
+                id: user.id
+              }, process.env.SECRETKEY, { expiresIn: 60 * 60 * 24 * 7 });
+
+              return res.status(200).json({
+                success: true,
+                message: 'signup succesful',
+                token
+              });
+            }
           });
         });
       } else {
-        return res.redirect('/#!/signup?error=existinguser');
+        return res.status(409).json({
+          success: false,
+          message: 'User already exists'
+        });
       }
     });
   } else {
-    return res.redirect('/#!/signup?error=incomplete');
+    return res.status(400).json({
+      success: false,
+      message: 'Invalid Inputs'
+    });
   }
 };
 
