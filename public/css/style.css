@@ -6,6 +6,10 @@
    text-transform: uppercase;
  }
 
+ .errMsg {
+    margin-bottom: 20px;
+ }
+
  #landing-charity {
    width: 300px !important;
    margin-left: 15px !important;
@@ -353,24 +357,6 @@
     font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
     margin-bottom: -13px;
  }
-/*
- #sign-up-btn-landing {
-   display: inline-block;
-   border-radius: 8px;
-   -moz-border-radius: 5px;
-   -webkit-border-radius: 5px;
-   font-size: 20px;
-   font-size: 2em;
-   font-weight: 400;
-   text-align: center;
-   color: white;
-   background: #C54141;
-   margin-top: 3px;
-   margin-bottom: 3px;
-   margin-right: 10px;
-   padding: 0.65em 35px;
-   cursor: pointer;
- }*/
 
   #sign-up-btn-other {
    display: inline-block;
@@ -452,15 +438,6 @@
    overflow: hidden;
 }
 
-/*.sign-in-header {
-   color: #fff;
-   font-weight: bold;
-   font-size: 52px;
-   text-transform: uppercase;
-   line-height: 60px;
-   text-align: center;
-   margin-bottom: -15px;
-}*/
 
 .top-margin {
    margin-top: 15px;
@@ -1211,8 +1188,7 @@ a:hover {
   display: block;
   text-decoration: none;
   padding: 15px;
-  background: rgba(160, 179, 176, 0.25);
-  color: #a0b3b0;
+  color: white;
   font-size: 20px;
   float: left;
   width: 50%;
@@ -1235,7 +1211,7 @@ a:hover {
 
 h1 {
   text-align: center;
-  color: #ffffff;
+  color: rgba(255, 255, 255, 0.5);
   font-weight: 300;
   margin: 0 0 40px;
 }
@@ -1276,8 +1252,8 @@ input, textarea {
   padding: 5px 10px;
   background: none;
   background-image: none;
-  border: 1px solid #a0b3b0;
-  color: #ffffff;
+  border: 2px solid #a0b3b0;
+  color: white;
   border-radius: 0;
   transition: border-color .25s ease, box-shadow .25s ease;
 }

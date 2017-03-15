@@ -28,10 +28,10 @@
     });
 </script>
 
-<div landing>
+
 <!-- Navigation -->
     <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
-        <div class="container">
+        <div class="container" ng-controller="IndexController">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
                     Menu <i class="fa fa-bars"></i>
@@ -64,7 +64,7 @@
                         <a class="page-scroll" href="#!/signin">Sign In</a>
                     </li>
                     <li ng-hide="showOptions">
-                        <a class="page-scroll" href="#!/signout">Sign Out</a>
+                        <a href="" ng-click="logout()">Sign Out</a>
                     </li>
                 </ul>
             </div>
@@ -82,7 +82,7 @@
                        
                         <p class="intro-text" style="margin-top:500px">A Game for Horrible People
                             Desperately Trying to be Good</p>
-                        <a href="#!/#about" class="btn btn-circle page-scroll">
+                        <a href="#about" class="btn btn-circle page-scroll">
                             <i class="fa fa-angle-double-down animated"></i>
                         </a>
                         
@@ -130,13 +130,13 @@
                 <!-- Teaser Text End -->
                  <div id="sign-up" class="col-md-12">
                     <span ng-show="showOptions">
-                        <a href="#!/signup"><div id="sign-up-btn-landing">Sign Up</div></a>
+                        <a href="/signup"><div id="sign-up-btn-landing">Sign Up</div></a>
                         <div id="sign-up-text"><a href="/play">Or Play as Guest</a>
                         </div>
                     </span>
 
                     <span ng-hide="showOptions">
-                        <a href="#!/app"><div id="sign-up-btn-landing">Join Game</div></a>
+                        <a href="/app"><div id="sign-up-btn-landing">Join Game</div></a>
                     </span>
                 </div>
                 </div>
@@ -152,7 +152,7 @@
                 <div class="col-lg-8 col-lg-offset-2">
                     <h2>Donate to Charity</h2>
                     <p>If you do not donate, you will not be liked!</p>
-                    <a href="http://startbootstrap.com/template-overviews/grayscale/" class="btn btn-default btn-lg">Click to Donate</a>
+                    <a href="https://www.crowdrise.com" class="btn btn-default btn-lg">Click to Donate</a>
                 </div>
             </div>
         </div>
@@ -164,4 +164,3 @@
             <p>Copyright &copy; The Izanagi Team 2017</p>
         </div>
     </footer>
-</div>

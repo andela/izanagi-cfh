@@ -1,0 +1,24 @@
+{
+  "name": "izanagi",
+  "description": "",
+  "scripts": {
+  },
+  "env": {
+    "MONGOHQ_URL": {
+      "required": true
+    },
+    "NPM_CONFIG_PRODUCTION": {
+      "required": true
+    }
+  },
+  "formation": {
+  },
+  "addons": [
+
+  ],
+  "buildpacks": [
+    {
+      "url": "heroku/nodejs"
+    }
+  ]
+}
