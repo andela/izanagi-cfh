@@ -188,7 +188,7 @@ angular.module('mean.system')
     cardThree.style.display = 'block';
     $timeout(() => {
       $scope.startNextRound();
-    }, 6000);
+    }, 4000);
   };
 
     if ($location.search().game && !(/^\d+$/).test($location.search().game)) {
