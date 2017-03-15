@@ -1,3 +1,4 @@
+
  .clear {
    clear:both;
  }
@@ -126,35 +127,9 @@
 .sign-error {
    text-align: center;
    color: white;
-   font-family: arial;
+   font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
    margin-bottom: -13px;
 }
-
-
- /**** Links ****/
- a {
-   color: #60B197;
-   -webkit-transition: color 0.5s ease;
-   -moz-transition: color 0.5s ease;
-   -ms-transition: color 0.5s ease;
-   -o-transition:  color 0.5s ease;
-   transition:  color 0.5s ease;
- }
-
- a:hover {
-   text-decoration: none;
-   color: #2ecc71;
-   border-radius:0px !important;
- }
-
- p a {
-   color: #60B197;
- }
-
- p a:hover {
-   color: #2ecc71;
- }
-
 
  /**** Top Bar ****/
 #menu-container {
@@ -380,26 +355,8 @@
  #create {
     text-align: center;
     color: white;
-    font-family: arial;
+    font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
     margin-bottom: -13px;
- }
-
- #sign-up-btn-landing {
-   display: inline-block;
-   border-radius: 8px;
-   -moz-border-radius: 5px;
-   -webkit-border-radius: 5px;
-   font-size: 20px;
-   font-size: 2em;
-   font-weight: 400;
-   text-align: center;
-   color: white;
-   background: #C54141;
-   margin-top: 3px;
-   margin-bottom: 3px;
-   margin-right: 10px;
-   padding: 0.65em 35px;
-   cursor: pointer;
  }
 
   #sign-up-btn-other {
@@ -454,29 +411,13 @@
    max-width: 100%;
  }
 
- #how-to {
-   max-width: 1400px;
-   margin-top: -15px;
- }
-
- #how-to-play {
-   margin-top: 190px;
- }
-
- #how-to-cards {
-   text-align: center;
- }
-
- #how-to-container {
-   padding-top: 0;
- }
 
  #card-list {
    margin-bottom: 15px;
  }
 
  #directions {
-   font-family: 'Lobster', cursive;
+   font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
    color: #FC575E;
  }
 
@@ -491,22 +432,13 @@
 #sign-up-text {
    margin: 0px auto;
    font-size: 18px;
-   font-family: 'Lobster', cursive;
+   font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
    border-radius: 8px;
    background: #252525;
    margin-left: 40px;
    overflow: hidden;
 }
 
-.sign-in-header {
-   color: #fff;
-   font-weight: bold;
-   font-size: 52px;
-   text-transform: uppercase;
-   line-height: 60px;
-   text-align: center;
-   margin-bottom: -15px;
-}
 
 .top-margin {
    margin-top: 15px;
@@ -979,22 +911,6 @@
 }
 
 
-.landing-card {
-  position: relative;
-  display: inline-block;
-  box-sizing: border-box;
-  width: 17.5%;
-  height: 215px;
-  padding: 1%;
-  margin: 1%;
-  background-color: #fff;
-  border-radius: 8px;
-  color: #252525;
-  font-family: Arial;
-  font-size: 1.1em;
-  font-weight: bold;
-  vertical-align: top;
-}
 
 
 /*Override Bootstrap Row Class*/
@@ -1185,30 +1101,6 @@
       font-size: 1.3em;
    }
 
-   #how-to-play {
-      margin-top: 0;
-   }
-
-   #how-to-play {
-      margin-top: 80px;
-   }
-
-   .landing-card {
-      position: relative;
-      display: block;
-      box-sizing: border-box;
-      padding: 4%;
-      margin: 5% 0;
-      background-color: #fff;
-      border-radius: 8px;
-      color: #252525;
-      font-family: Arial;
-      font-size: 20px;
-      font-weight: bold;
-      vertical-align: top;
-      width: 100%;
-   }
-
    .wpb-portfolio-list .wpb-portfolio-item {
       margin-left: -20px;
       border-radius: 8px;
@@ -1226,10 +1118,6 @@
    .wpb-team-details h3 {
       font-size: 0.94em;
       margin-top: -5px;
-   }
-
-   #how-to-container {
-      padding-top: 0;
    }
 
    .avatar-list {
@@ -1271,15 +1159,15 @@
 
 a {
   text-decoration: none;
-  color: rgba(19, 35, 47, 0.9);
+  color: rgb(143, 153, 214);
   transition: .5s ease;
 }
 a:hover {
-  color: rgba(19, 35, 47, 0.9);
+  color: rgb(143, 153, 214);
 }
 
 .form {
- background-color: lightseagreen;
+  background: rgba(62, 88, 165);
   padding: 40px;
   max-width: 600px;
   margin: 40px auto;
@@ -1301,7 +1189,6 @@ a:hover {
   display: block;
   text-decoration: none;
   padding: 15px;
-  background: #179b77;
   color: white;
   font-size: 20px;
   float: left;
@@ -1311,11 +1198,11 @@ a:hover {
   transition: .5s ease;
 }
 .tab-group li a:hover {
-  background: rgba(19, 35, 47, 0.9);
+  background: rgb(143, 153, 214);
   color: #ffffff;
 }
 .tab-group .active a {
-  background: rgba(19, 35, 47, 0.9);
+  background: rgb(143, 153, 214);
   color: #ffffff;
 }
 
@@ -1325,7 +1212,7 @@ a:hover {
 
 h1 {
   text-align: center;
-  color: black;
+  color: rgba(255, 255, 255, 0.5);
   font-weight: 300;
   margin: 0 0 40px;
 }
@@ -1342,7 +1229,7 @@ label {
 }
 label .req {
   margin: 2px;
-  color: rgba(19, 35, 47, 0.9);
+  color: rgb(143, 153, 214);
 }
 
 label.active {
@@ -1373,7 +1260,7 @@ input, textarea {
 }
 input:focus, textarea:focus {
   outline: 0;
-  border-color: #1ab188;
+  border-color: rgb(143, 153, 214);
 }
 
 textarea {
@@ -1409,13 +1296,13 @@ textarea {
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: .1em;
-  background: rgba(19, 35, 47, 0.9);
+  background: rgb(143, 153, 214);
   color: #ffffff;
   transition: all 0.5s ease;
   -webkit-appearance: none;
 }
 .button:hover, .button:focus {
-  background: #179b77;
+  background: rgb(143, 153, 214);
 }
 
 .button-block {
@@ -1435,180 +1322,391 @@ textarea {
 
 
 
-/* NEW STYLES */
 
-html {
-	background: url(img.jpg) no-repeat center center fixed;
-	-webkit-background-size: cover;
-	-moz-background-size: cover;
-	-o-background-size: cover;
-	background-size: cover;
-}
+
+/**** NEW LANDING PAGE ****/
+
 body {
-	padding-top: 20px;
-	font-size: 16px;
-	background: transparent;
-	position: relative;
-}
-
-.margin-base-vertical {
-	margin: 10px 0;
-}
-
-
-h1 {
-	font-family: "Abel", Arial, sans-serif;
-	font-weight: 400;
-	font-size: 50px;
-	color: darkslategray;
-}
-h3 {
-	font-family: "Abel", Arial, sans-serif;
-	font-weight: 200;
-	font-size: 40px;
-}
-.panel {
-	background-color: lightseagreen;
-	opacity: 0.9;
-	border-color: darkcyan;
-	color: black;
-	margin-top: 90px;
-	padding: 20px 100px;
-	margin-bottom: 70px;
-
-	/*margin-left: 10px;*/
-}
-.btn-green{
-	background-color: green;
-}
-.my-logo{
-	font-size: 40px;
-	font-weight: 60px;
-	font-family: 'Fugaz One', cursive;
-	font-family: 'Jockey One', sans-serif;
-	font-family: 'Carter One', cursive;
-	font-family: 'Fontdiner Swanky', cursive;
-}
-.light{
-	color: grey;
-}
-
-.cards{
-	background-color: black;
-	color: antiquewhite;
-	height: 250px;
-  position: relative
-}
-
-.cards p {
-  margin-left: auto;
-  margin-right: auto;
-  width: 5em;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  margin-right: -50%;
-  transform: translate(-50%, -50%)
-}
-.clear {
-	clear: both;
-}
-.img{
-	height: 100px;
-	border-radius: 10px;
-}
-#impact{
-	background-color: antiquewhite;
-	color: darkolivegreen;
-	height: 180px;
-	border-radius: 10px;
-}
-#amount-raised{
-	display: inline;
-}
-#small{
-	font-size: 12px;
-	float:right;
-	margin-right: -5px;
-	margin-bottom: 20px;
-	color: grey;
-	font-weight: 100px;
-}
-#amount{
-	font-size: 35px;
-	float:left;
-	margin-left: 7px;
-	margin-top: -3px;
-	font-weight: 120px;
-	color: black;
-}
-#donate-now{
-	display: inline;
-
-}
-#a-donate{
-	font-size: 20px;
-	margin-bottom: 40px;
-	background: orange;
-	color: antiquewhite;
-	border: 0 none;
-
-}
-#a-donate:hover{
-	outline: navajowhite;
-	color: black;
-}
-#donate-logo{
-	float:right;
-	width: 60px;
-	height: 100px;
-	margin-bottom: -35px;
-	background: url(../img/give.png) no-repeat;
-}
-#cr{
-	margin-top: -25px;
-}
-#footer{
-	font-size: 10px;
-}
-
-/*** Start-Game Css **/
-/*The Modal (background) */
-.modal-sm {
-  display: none;
-  position: fixed;
-  z-index: 1;
-  left: 0;
-  top: 0;
   width: 100%;
   height: 100%;
-  overflow: hidden;
-  background-color: rgb(0, 0, 0);
-  background-color: rgba(0, 0, 0, 0.4);
+  font-family: "Lora", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: white;
+  background-color: black;
+  }
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0 0 35px;
+  text-transform: uppercase;
+  font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 700;
+  letter-spacing: 1px;
 }
-/* Modal Content/Box */
-.modal-content {
-  background-color: white;
-  margin: 35% auto;
-  /* 15% from the top and centered */
-  padding: 20px;
-  border: 1px solid #888;
-  width: 80%;
-  color: #002266;
+p {
+  margin: 0 0 25px;
+  font-size: 18px;
+  line-height: 1.5;
 }
-/* The Close Button */
-.close {
-  color: #002266;
-  float: right;
-  font-size: 35px;
-  font-weight: bold;
+.donate-section {
+  width: 100%;
+  background: url(../img/donate-bg.jpg) no-repeat center center scroll;
+  padding: 50px 0;
+  padding-top: 200px;
+  color: white;
+  background-color: black;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
 }
-.close:hover {
-  color: lightblue;
-  text-decoration: none;
-  cursor: pointer;
+@media (min-width: 768px) {
+  p {
+    margin: 0 0 35px;
+    font-size: 20px;
+    line-height: 1.6;
+  }
 }
-.header-text {
-  margin-left: 35%;
+
+.light {
+  font-weight: 400;
 }
-/*** End of  Start-Game Css **/
+.navbar-custom {
+  margin-bottom: 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  text-transform: uppercase;
+  font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  background-color: black;
+}
+.navbar-custom .navbar-toggle {
+  color: white;
+  background-color: rgba(255, 255, 255, 0.2);
+  font-size: 12px;
+}
+.navbar-custom .navbar-toggle:focus,
+.navbar-custom .navbar-toggle:active {
+  outline: none;
+}
+.navbar-custom .navbar-brand {
+  font-weight: 700;
+}
+.navbar-custom .navbar-brand:focus {
+  outline: none;
+}
+.navbar-custom a {
+  color: white;
+}
+.navbar-custom li {
+  display:inline-block;
+
+}
+.navbar-custom .nav li a {
+  -webkit-transition: background 0.3s ease-in-out;
+  -moz-transition: background 0.3s ease-in-out;
+  transition: background 0.3s ease-in-out;
+}
+.navbar-custom .nav li a:hover {
+  color: rgba(255, 255, 255, 0.8);
+  outline: none;
+  background-color: transparent;
+}
+.navbar-custom .nav li a:focus,
+.navbar-custom .nav li a:active {
+  outline: none;
+  background-color: transparent;
+}
+.navbar-custom .nav li.active {
+  outline: none;
+}
+.navbar-custom .nav li.active a {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+.navbar-custom .nav li.active a:hover {
+  color: white;
+}
+@media (min-width: 768px) {
+  .navbar-custom {
+    padding: 20px 0;
+    border-bottom: none;
+    letter-spacing: 1px;
+    background: transparent;
+    -webkit-transition: background 0.5s ease-in-out, padding 0.5s ease-in-out;
+    -moz-transition: background 0.5s ease-in-out, padding 0.5s ease-in-out;
+    transition: background 0.5s ease-in-out, padding 0.5s ease-in-out;
+  }
+  .navbar-custom.top-nav-collapse {
+    padding: 0;
+    background: black;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  }
+}
+.intro {
+  display: table;
+  width: 100%;
+  height: auto;
+  padding: 100px 0;
+  text-align: center;
+  color: white;
+  background: url(../img/intro-bg.jpg) no-repeat bottom center scroll;
+  background-color: black;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+}
+.intro .intro-body {
+  display: table-cell;
+  vertical-align: middle;
+}
+.intro .intro-body .brand-heading {
+  font-size: 40px;
+}
+.intro .intro-body .intro-text {
+  font-size: 18px;
+}
+@media (min-width: 768px) {
+  .intro {
+    height: 100%;
+    padding: 0;
+  }
+  .intro .intro-body .brand-heading {
+    font-size: 100px;
+  }
+  .intro .intro-body .intro-text {
+    font-size: 24px;
+    font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  }
+}
+.btn-circle {
+  width: 70px;
+  height: 70px;
+  margin-top: 15px;
+  padding: 7px 16px;
+  border: 2px solid white;
+  border-radius: 100% !important;
+  font-size: 40px;
+  color: white;
+  background: transparent;
+  -webkit-transition: background 0.3s ease-in-out;
+  -moz-transition: background 0.3s ease-in-out;
+  transition: background 0.3s ease-in-out;
+}
+.btn-circle:hover,
+.btn-circle:focus {
+  outline: none;
+  color: white;
+  background: rgba(255, 255, 255, 0.1);
+}
+.btn-circle i.animated {
+  -webkit-transition-property: -webkit-transform;
+  -webkit-transition-duration: 1s;
+  -moz-transition-property: -moz-transform;
+  -moz-transition-duration: 1s;
+}
+.btn-circle:hover i.animated {
+  -webkit-animation-name: pulse;
+  -moz-animation-name: pulse;
+  -webkit-animation-duration: 1.5s;
+  -moz-animation-duration: 1.5s;
+  -webkit-animation-iteration-count: infinite;
+  -moz-animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+  -moz-animation-timing-function: linear;
+}
+@-webkit-keyframes pulse {
+  0% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+  50% {
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2);
+  }
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+@-moz-keyframes pulse {
+  0% {
+    -moz-transform: scale(1);
+    transform: scale(1);
+  }
+  50% {
+    -moz-transform: scale(1.2);
+    transform: scale(1.2);
+  }
+  100% {
+    -moz-transform: scale(1);
+    transform: scale(1);
+  }
+}
+.content-section {
+  padding-top: 100px;
+}
+
+@media (min-width: 767px) {
+  .content-section {
+    padding-top: 250px;
+  }
+  /*.download-section {
+    padding: 100px 0;
+  }*/
+  #map {
+    height: 400px;
+    margin-top: 250px;
+  }
+}
+.btn {
+  text-transform: uppercase;
+  font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  border-radius: 0;
+}
+.btn-default {
+  border: 1px solid #42DCA3;
+  color: #42DCA3;
+  background-color: transparent;
+}
+.btn-default:hover,
+.btn-default:focus {
+  border: 1px solid #42DCA3;
+  outline: none;
+  color: black;
+  background-color: #42DCA3;
+}
+ul.banner-social-buttons {
+  margin-top: 0;
+}
+@media (max-width: 1199px) {
+  ul.banner-social-buttons {
+    margin-top: 15px;
+  }
+}
+@media (max-width: 767px) {
+  ul.banner-social-buttons li {
+    display: block;
+    margin-bottom: 20px;
+    padding: 0;
+  }
+  ul.banner-social-buttons li:last-child {
+    margin-bottom: 0;
+  }
+}
+footer {
+  padding-top: 100px;
+}
+footer p {
+  margin: 0;
+}
+::-moz-selection {
+  text-shadow: none;
+  background: #fcfcfc;
+  background: rgba(255, 255, 255, 0.2);
+}
+::selection {
+  text-shadow: none;
+  background: #fcfcfc;
+  background: rgba(255, 255, 255, 0.2);
+}
+img::selection {
+  background: transparent;
+}
+img::-moz-selection {
+  background: transparent;
+}
+
+
+
+
+
+
+#how-to {
+   max-width: 1400px;
+ }
+
+ #how-to-cards {
+   text-align: center;
+ }
+
+.landing-card {
+  position: relative;
+  display: inline-block;
+  box-sizing: border-box;
+  width: 20%;
+  height: 40%;
+  padding: 1%;
+  margin: 1%;
+  background-color: #fff;
+  border-radius: 4px;
+  color: #252525;
+  font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: lighter;
+  vertical-align: top;
+  overflow:hidden;
+}
+
+
+.wpb-teaser .wpb-slogan h2 {
+   color: #fff;
+   font-weight: bold;
+   font-size: 52px;
+   text-transform: uppercase;
+   line-height: 60px;
+   text-align: center;
+ }
+
+#sign-up-btn-landing {
+   display: inline-block;
+   border-radius: 8px;
+   -moz-border-radius: 5px;
+   -webkit-border-radius: 5px;
+   font-size: 20px;
+   font-size: 2em;
+   font-weight: 400;
+   text-align: center;
+   color: white;
+   background: rgb(143, 153, 214);
+   margin-top: 3px;
+   margin-bottom: 6px;
+   margin-right: 10px;
+   padding: 0.65em 35px;
+   cursor: pointer;
+ }
+
+ #sign-up {
+   text-align: center;
+ }
+
+#sign-up-text {
+   margin: 5px auto;
+   font-size: 16px;
+   font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+   background: black;
+   overflow: hidden;
+}
+#sign-up-text a {
+  color: rgb(51, 51, 255);
+}
+#donate {
+  color: rgb(51, 0, 51);
+}
+
+#donate-text {
+  color: rgb(0, 0, 0);
+}
+#donate-text .btn {
+  color: #fff;
+  background-color: rgb(34, 35, 55);
+  border: none;
+}
+
+#about a {
+  color: rgb(143, 153, 214);
+}
+/**** END NEW LANDING PAGE ****/

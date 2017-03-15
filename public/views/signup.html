@@ -46,35 +46,31 @@ $('.tab a').on('click', function (e) {
 </script>
 
  <!-- Fixed Logo & Menu Bar Start -->
-<div id="top-part">
-        <div class="wpb-top-bar">
-            <div class="mod-contain" id="navver">
-                <div class="row">
-                    <!-- Logo -->
-                    <div class="wpb-logo-container">
-                        <div id="landing-logo">
-                            <span id="first-word">Cards</span>
-                            <span id="second-word"> for</span>
-                            <span id="third-word">Humanity</span>
-                        </div>
-                        <div class="col-md-9 wpb-menu-container">
-                            <ul class="wpb-main-menu">
-                                <li><a href="#!/">Home</a></li>
-                                <span ng-hide="!showOptions">
-                                    <li><a href="#!/signup">Sign Up</a></li>
-                                    <li><a href="#!/signin">Sign In</a></li>
-                                </span>
-                                <span ng-show="showOptions">
-                                    <li><a href="/signout">Sign Out</a></li>
-                                </span>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+    <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+                    Menu <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand page-scroll" href="#!/page-top">
+                    Cards for Humanity
+                </a>
             </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="#!/page-top">Home</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
         </div>
-    </div>
+        <!-- /.container -->
+    </nav>
 <!-- Fixed Logo & Menu Bar End -->
+
 <div class="form" id="signindiv" ng-controller="IndexController">
     <ul class="tab-group">
         <li class="tab active"><a href="#signup">Sign Up</a></li>
