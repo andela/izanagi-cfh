@@ -1585,7 +1585,7 @@ h3 {
 }
 #flip-card.slide {
   background: black;
-  transform: rotateY( 270deg );
+  transform: rotateY( 180deg );
 }
 .cards-group {
   bottom: 0px;

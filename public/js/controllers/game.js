@@ -178,16 +178,11 @@ angular.module('mean.system')
     }
   };
   $scope.flipCards = () => {
-    const cardOne = document.getElementById('card-1');
-    const cardTwo = document.getElementById('card-2');
-    const cardThree = document.getElementById('card-3');
-    const reveal = document.getElementById('reveal');
-    cardOne.style.display = 'block';
-    cardTwo.style.display = 'block';
-    reveal.style.display = 'none';
-    cardThree.style.display = 'block';
+    const card = angular.element(document.getElementsByClassName('card-stack'));
+    card.addClass('slide');
     $timeout(() => {
       $scope.startNextRound();
+      card.removeClass('slide');
     }, 4000);
   };
 
