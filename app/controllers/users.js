@@ -4,6 +4,7 @@
 var mongoose = require('mongoose'),
   User = mongoose.model('User');
 var avatars = require('./avatars').all();
+const jwt = require('jsonwebtoken');
 
 /**
  * Auth callback
@@ -76,34 +77,54 @@ exports.checkAvatar = function(req, res) {
 /**
  * Create user
  */
-exports.create = function(req, res) {
+exports.create = (req, res) => {
   if (req.body.name && req.body.password && req.body.email) {
     User.findOne({
       email: req.body.email
-    }).exec(function(err,existingUser) {
+    }).exec((err, existingUser) => {
       if (!existingUser) {
-        var user = new User(req.body);
+        const user = new User(req.body);
         // Switch the user's avatar index to an actual avatar url
         user.avatar = avatars[user.avatar];
         user.provider = 'local';
-        user.save(function(err) {
+        user.save((err) => {
           if (err) {
-            return res.render('/#!/signup?error=unknown', {
-              errors: err.errors,
-              user: user
+            return res.status(400).json({
+              success: false,
+              message: 'Unable to save user'
             });
           }
-          req.logIn(user, function(err) {
-            if (err) return next(err);
-            return res.redirect('/#!/');
+          req.logIn(user, (err) => {
+            if (err) {
+              res.status(400).json({
+                success: false,
+                message: 'Unable to login',
+              });
+            } else {
+              const token = jwt.sign({
+                id: user.id
+              }, process.env.SECRETKEY, { expiresIn: 60 * 60 * 24 * 7 });
+
+              return res.status(200).json({
+                success: true,
+                message: 'signup succesful',
+                token
+              });
+            }
           });
         });
       } else {
-        return res.redirect('/#!/signup?error=existinguser');
+        return res.status(409).json({
+          success: false,
+          message: 'User already exists'
+        });
       }
     });
   } else {
-    return res.redirect('/#!/signup?error=incomplete');
+    return res.status(400).json({
+      success: false,
+      message: 'Invalid Inputs'
+    });
   }
 };
 
