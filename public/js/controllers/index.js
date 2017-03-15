@@ -2,6 +2,7 @@ angular.module('mean.system')
 .controller('IndexController', ['$scope', '$location', '$window', '$http', 'Global', 'socket', 'game', 'AvatarService', ($scope, $location, $window, $http, Global, socket, game, AvatarService) => {
     $scope.global = Global;
     $scope.signupErrMsg = '';
+    $scope.loginErrMsg = '';
 
     $scope.playAsGuest = function() {
       game.joinGame();
@@ -14,6 +15,31 @@ angular.module('mean.system')
       } else {
         return false;
       }
+    };
+
+    $scope.login = () => {
+       const user = {
+         email: $scope.email,
+         password: $scope.password
+       };
+
+       $http.post('/api/auth/login', user).then((response) => {
+         if(response.data.success) {
+           $window.localStorage.setItem('token', response.data.token);
+           $location.path('/app');
+         } else {
+           $scope.loginErrMsg = response.data.message;
+         }
+       }, (err) => {
+         $scope.showError();
+         $scope.error = err;
+       });
+     };
+
+    $scope.logout = () => {
+       $window.localStorage.removeItem('token');
+       $scope.showOptions = true;
+       $location.path('/');
     };
 
     $scope.signup = () => {
