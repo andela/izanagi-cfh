@@ -14,15 +14,39 @@ exports.authCallback = function(req, res, next) {
 };
 
 /**
- * Show login form
- */
-exports.signin = function(req, res) {
-  if (!req.user) {
-    res.redirect('/#!/signin?error=invalid');
-  } else {
-    res.redirect('/#!/app');
-  }
-};
+ +/**
+   * Show login form
+   */
+  exports.signin = function(req, res) {
+
+     if (req.body.email && req.body.password) {
+     User.findOne({ email: req.body.email }).exec((err, existingUser) => {
+       if(err) throw err;
+
+       if (!existingUser) {
+          return res.json({ success: false, message: 'Invalid email or password' });
+       } else if (existingUser) {
+         if (req.body.password) {
+           var validPassword = existingUser.authenticate(req.body.password);
+         } else {
+            return res.json({ success: false, message: 'No password provided' });
+         }
+         if (!validPassword) {
+           return res.json({ success: false, message: 'Invalid email or password' });
+         } else {
+
+            return res.status(200).json({
+             success: true,
+             message: 'User successfully logged in',
+             "token":  jwt.sign({ id: existingUser.id }, process.env.SECRETKEY, {expiresIn: 60 * 60 * 24 * 7})
+            });
+         }
+
+       }
+
+     });
+   }
+  };
 
 /**
  * Show sign up form
@@ -50,7 +74,7 @@ exports.session = function(req, res) {
   res.redirect('/');
 };
 
-/** 
+/**
  * Check avatar - Confirm if the user who logged in via passport
  * already has an avatar. If they don't have one, redirect them
  * to our Choose an Avatar page.
