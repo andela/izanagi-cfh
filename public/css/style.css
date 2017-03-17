@@ -1,3 +1,11 @@
+  .modal-header {
+   text-align: center;
+ }
+
+ .playerLimitAlert {
+   margin-top: 20%;
+ }
+
  .btn-color {
    	background-color: #20939C;
      color: white;

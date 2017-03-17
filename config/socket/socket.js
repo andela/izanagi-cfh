@@ -61,8 +61,6 @@ module.exports = function(io) {
           });
           thisGame.prepareGame();
           thisGame.sendNotification('The game has begun!');
-        } else {
-          thisGame.sendNotification('Minimum of 3 players are required to play the game');
         }
       }
     });

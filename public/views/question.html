@@ -1,3 +1,13 @@
+<div class="modal fade" tabindex="-1" role="dialog" id="playerMinimumAlert">
+  <div class="modal-dialog playerLimitAlert" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h3 class="modal-title" id="exampleModalLabel2" style="color:black">Minimum of 3 players can play a game</h3>
+      </div>
+    </div>
+  </div>
+</div>
 <div id="question-container-inner">
   <div class="card longBlack">
     <span ng-bind-html-unsafe="game.curQuestion.text" ng-hide="game.state === 'game ended' || game.state ==='game dissolved' || game.state === 'awaiting players'"></span>
