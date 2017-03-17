@@ -30,8 +30,9 @@
 
 
 <!-- Navigation -->
+<div ng-controller="IndexController">
     <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
-        <div class="container" ng-controller="IndexController">
+        <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
                     Menu <i class="fa fa-bars"></i>
@@ -82,11 +83,17 @@
                        
                         <p class="intro-text" style="margin-top:500px">A Game for Horrible People
                             Desperately Trying to be Good</p>
-                        <a href="#about" class="btn btn-circle page-scroll">
+                        <a ng-show="showOptions" href="#about" class="btn btn-circle page-scroll">
                             <i class="fa fa-angle-double-down animated"></i>
                         </a>
                         
                     </div>
+                </div>
+                <div class="row">
+                     <span ng-hide="showOptions">
+                        <a href="/play"><div id="sign-up-btn-landing">Play Game with Strangers</div></a>
+                        <a href="/play?custom"><div id="sign-up-btn-landing">Play Game with Friends</div></a>
+                    </span>
                 </div>
             </div>
         </div>
@@ -136,7 +143,7 @@
                     </span>
 
                     <span ng-hide="showOptions">
-                        <a href="/app"><div id="sign-up-btn-landing">Join Game</div></a>
+                        <a href="#!/app"><div id="sign-up-btn-landing">Join Game</div></a>
                     </span>
                 </div>
                 </div>
@@ -164,3 +171,4 @@
             <p>Copyright &copy; The Izanagi Team 2017</p>
         </div>
     </footer>
+</div>
