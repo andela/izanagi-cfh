@@ -47,12 +47,15 @@
 
 <div id="info-container" ng-show="game.state === 'awaiting players'">
   <div id="inner-info">
-    <div class="col-lg-6" style="margin: 15% 25%">
+    <div id="searchContainer" class="col-lg-6" style="margin: 5% 25%; display: none">
       <div class="input-group">
-        <input type="text" class="form-control" placeholder="Search for friends to invite">
+        <input type="text" class="form-control" ng-keyup="playerSearch()" ng-model="inviteeEmail" placeholder="Search for friends to invite">
         <span class="input-group-btn">
           <button class="btn-color btn" type="button" ng-click="sendInvite()">Invite</button>
         </span>
+      </div>
+      <div ng-if="searchResults.length !== 0" style="height: 135px; background-color: lightgray; text-align: left; overflow: scroll; border-radius: 2px 2px 4px 4px">
+        <div class="search-result" ng-repeat="result in searchResults" ng-click="selectEmail(result.email)">{{result.email}}</div>
       </div>
     </div>
     <div id="lobby-how-to-play">How To Play</div>
