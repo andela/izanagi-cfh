@@ -1709,3 +1709,111 @@ img::-moz-selection {
   color: rgb(143, 153, 214);
 }
 /**** END NEW LANDING PAGE ****/
+
+
+/*chat styles*/
+div.chatpanel {
+  position: fixed;
+  bottom: 0px;
+  width: 340px;
+  right: 0;
+  background: #f6f6f6;
+  box-shadow: 3px 0px 3px 0px rgba(50, 50, 50, 0.5);
+}
+
+@media screen and (max-width:650px){
+  div.chatpanel {
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+    right: 0;
+    background: #f6f6f6;
+    box-shadow: 3px 0px 3px 0px rgba(50, 50, 50, 0.5);
+  }
+}
+
+div.panel-heading {
+  height: 25px;
+  padding: 5px;
+  background: #212f3c;
+  color: #64ffda;
+}
+
+li.message:hover {
+  background: #f2f3f4;
+}
+
+li.message {
+  padding: 0px 10px;
+}
+
+div.chatthread {
+  overflow-y: scroll;
+  height: 300px;
+  width: 100%;
+  margin-bottom:40px;
+  background: white;
+}
+
+div.chat_body {
+  margin-top: -15px;
+}
+p.message_content {
+  margin-top: -8px;
+}
+
+div.chatinput {
+  width: calc(100% - 10px);
+  position: absolute;
+  padding: 5px;
+  background: #212f3c; 
+  bottom: 0;
+  left: 0;
+}
+
+input.chat_message {
+  outline: none;
+  width: calc(100% - 60px);
+  background: white;
+  padding: 0px 30px;
+  height: 35px;
+  color: black;
+
+}
+small.message_notification {
+  color: lightgreen;
+  position: absolute;
+  left: 30px;
+  bottom: 10px;
+}
+
+a.retract_button {
+  position: absolute;
+  right: 0px; 
+  padding: 5px;
+  color: #64ffda;
+}
+
+a.send_icon {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  padding-right: 10px;
+  padding-bottom: 5px;
+  color: #909497;
+}
+
+p.message_content {
+  font-family: Verdana, Geneva, sans-serif;
+  color: black;
+}
+
+strong.username {
+  text-transform: capitalize;
+  font-family: "Arial Black", Gadget, sans-serif;
+  color: cadetblue;
+}
+
+small.time-content {
+  font-family: "Courier New", Courier, monospace;
+}
