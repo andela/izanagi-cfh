@@ -32,7 +32,7 @@ console.log($scope.showOptions)
        $http.post('/api/auth/login', user).then((response) => {
          if(response.data.success) {
            $window.localStorage.setItem('token', response.data.token);
-           $location.path('/app');    
+           $location.path('/');    
          } else {
            $scope.loginErrMsg = response.data.message;
          }
@@ -65,7 +65,7 @@ console.log($scope.showOptions)
         $http.post('/api/auth/signup', newuser).then((response) => {
           $window.localStorage.setItem('token', response.data.token);
           $scope.showOptions = false;
-          $location.path('/app');
+          $location.path('/#howtoplay');
         }, (err) => {
           $scope.signupErrMsg = err.data.message;
           $scope.showError();
