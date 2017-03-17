@@ -139,6 +139,7 @@
    background: #252525;
    margin: 10px 0;
    padding: 5px;
+   margin-top: 50px;
 }
 
 #landing-logo {
@@ -1709,3 +1710,30 @@ img::-moz-selection {
   color: rgb(143, 153, 214);
 }
 /**** END NEW LANDING PAGE ****/
+
+#abandon-game-button {
+  float: right;
+  margin-top: 10px;
+  padding-top: 5px;
+  border-radius: 5px;
+  text-align: center;
+  cursor: pointer;
+  height: 30px;
+  width: 15%;
+  background-color: rgb(143, 153, 214);
+}
+
+#abandon-game-button:hover {
+  opacity: 0.8;
+}
+
+#tweet-container {
+  float: right;
+  margin-right: 20px;
+  margin-top: 15px;
+}
+
+#gameplay-container {
+  margin-top: 100px;
+  width: 70%;
+}
