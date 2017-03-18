@@ -1885,11 +1885,11 @@ h3 {
    font-weight: 400;
    text-align: center;
    color: white;
-   background: rgb(143, 153, 214);
+   background: 	#70A693;
    margin-top: 3px;
    margin-bottom: 6px;
    margin-right: 10px;
-   padding: 0.65em 35px;
+   padding: 0.35em 15px;
    cursor: pointer;
  }
 
