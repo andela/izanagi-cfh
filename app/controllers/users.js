@@ -38,7 +38,7 @@ exports.authCallback = function(req, res, next) {
             return res.status(200).json({
              success: true,
              message: 'User successfully logged in',
-             "token":  jwt.sign({ id: existingUser.id }, process.env.SECRETKEY, {expiresIn: 60 * 60 * 24 * 7})
+             "token":  jwt.sign({ id: existingUser.id }, 'rowland', {expiresIn: 60 * 60 * 24 * 7})
             });
          }
 
@@ -231,3 +231,4 @@ exports.user = function(req, res, next, id) {
       next();
     });
 };
+/*process.env.SECRETKEY*/
