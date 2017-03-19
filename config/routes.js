@@ -1,7 +1,7 @@
 var async = require('async');
 
 module.exports = function(app, passport, auth) {
-    //User Routes
+    // User Routes
     var users = require('../app/controllers/users');
 
     app.get('/signin', users.signin);
@@ -92,4 +92,8 @@ module.exports = function(app, passport, auth) {
     app.get('/play', index.play);
     app.get('/', index.render);
 
+    var startGame = require('../app/controllers/start-game');
+    app.get('/api/games/:id', startGame.getGameRecords);
+    app.post('/api/games/:id/start', startGame.saveRecords);
+    app.post('/api/games/:id/end', startGame.updateRecords);
 };
