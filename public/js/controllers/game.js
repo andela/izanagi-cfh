@@ -179,12 +179,6 @@ angular.module('mean.system')
       }
     });
 
-    // $scope.sendInvite = () => {
-    //   if (game.players.length >= game.playerMaxLimit) {
-    //     $('#playerMaximumAlert').modal('show');
-    //   }
-    // }
-
     $scope.sendInvite = () => {
       $scope.searchResults = [];
       $scope.inviteeEmail = '';
