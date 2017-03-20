@@ -34,7 +34,7 @@ angular.module('mean.system')
     */
     $scope.sendMessage = (userMessage) => {
       $scope.chat.postGroupMessage(userMessage);
-      $scope.chatMessage = '';
+      document.getElementsByClassName('emoji-wysiwyg-editor')[0].innerHTML = '';
     };
 
     /**
