@@ -78,7 +78,6 @@ angular.module('mean.system')
     return {
       getPlayers: (inviteeUsername) => {
         const deferred = $q.defer();
-        console.log('anything')
         $http.get(`/api/search/users/${inviteeUsername}`)
           .success((data, status, headers, config) => {
             deferred.resolve(data, status, headers, config);

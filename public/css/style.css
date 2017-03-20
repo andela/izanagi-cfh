@@ -1644,6 +1644,106 @@ img::-moz-selection {
   background: transparent;
 }
 
+/*CSS FOR CZAR-PICK-BLACK-CARD*/
+.card-face { 
+  width: 200px;
+  height: 220px;
+  margin-left: 40%;
+  position: relative;
+  perspective: 800px;
+}
+#flip-card {
+  position: absolute;
+  transform-style: preserve-3d;
+  transition: transform 1s, background 0s 0.3s, right 2s ease 1s, opacity 2s ease-out 2s;
+  right: 12px;
+  top: 12px;
+  z-index: 12;
+}
+#flip-card.slide {
+  background: black;
+  transform: rotateY( 180deg );
+}
+.cards-group {
+  bottom: 0px;
+}
+.card-load {
+  background-image:url('../img/b_load.jpg');
+  background-repeat:no-repeat;
+  background-size:contain;
+  background-position:center;
+  position: absolute;
+  opacity: 1;
+  bottom: 0;
+  display: block;
+  width: 70%;
+  height: 90%;
+  border-radius: 20px;
+  border: 1px solid #333;
+}
+.card-stack {
+  background-image:url('../img/black.jpg');
+  background-repeat:no-repeat;
+  background-size:contain;
+  background-position:center;
+  position: absolute;
+  opacity: 1;
+  bottom: 0;
+  display: block;
+  width: 70%;
+  height: 90%;
+  border-radius: 20px;
+  border: 1px solid #333;
+}
+.card-stack.slide {
+  opacity: 0;
+}
+
+.card-stack.left.slide {
+  left: -100vw !important;
+}
+.card-stack.right.slide {
+  right: -100vw !important;
+}
+
+.card-stack:nth-child(2) {
+  right: 2px;
+  left: -4px;
+  top: 2px;
+  z-index: 2;
+  transition: left 2s ease .8s, opacity 2s ease-out 2s;
+}
+
+
+.card-stack:nth-child(3) {
+  right: 4px;
+  top: 4px;
+  z-index: 4;
+  transition: right 2s ease 1s, opacity 2s ease-out 2s;
+}
+
+.card-stack:nth-child(4) {
+  right: 6px;
+  left: -8px;
+  top: 6px;
+  z-index: 6;
+  transition: left 2s ease 1s, opacity 2s ease-out 2s;
+}
+
+.card-stack:nth-child(5) {
+  right: 8px;
+  top: 8px;
+  z-index: 8;
+  transition: right 2s ease 1.2s, opacity 2s ease-out 2s;
+}
+
+.card-stack:nth-child(6) {
+  right: 10px;
+  left: -12px;
+  top: 10px;
+  z-index: 10;
+  transition: left 2s ease 1.2s, opacity 2s ease-out 2s;
+}
 
 
 
@@ -1733,6 +1833,116 @@ img::-moz-selection {
   color: rgb(143, 153, 214);
 }
 /**** END NEW LANDING PAGE ****/
+
+
+/*chat styles*/
+div.chatpanel {
+  position: fixed;
+  bottom: 0px;
+  width: 340px;
+  right: 0;
+  background: #f6f6f6;
+  box-shadow: 3px 0px 3px 0px rgba(50, 50, 50, 0.5);
+}
+
+@media screen and (max-width:650px){
+  div.chatpanel {
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+    right: 0;
+    background: #f6f6f6;
+    box-shadow: 3px 0px 3px 0px rgba(50, 50, 50, 0.5);
+  }
+}
+
+div.panel-heading {
+  height: 25px;
+  padding: 5px;
+  background: #212f3c;
+  color: #64ffda;
+}
+
+li.message:hover {
+  background: #f2f3f4;
+}
+
+li.message {
+  padding: 0px 10px;
+}
+
+div.chatthread {
+  overflow-y: scroll;
+  height: 300px;
+  width: 100%;
+  margin-bottom:40px;
+  background: white;
+}
+
+div.chat_body {
+  margin-top: -15px;
+}
+p.message_content {
+  margin-top: -8px;
+}
+
+div.chatinput {
+  width: calc(100% - 10px);
+  position: absolute;
+  padding: 5px;
+  background: #212f3c; 
+  bottom: 0;
+  left: 0;
+}
+
+input.chat_message {
+  outline: none;
+  width: calc(100% - 60px);
+  background: white;
+  padding: 0px 30px;
+  height: 35px;
+  color: black;
+
+}
+small.message_notification {
+  color: lightgreen;
+  position: absolute;
+  left: 30px;
+  bottom: 10px;
+}
+
+a.retract_button {
+  position: absolute;
+  right: 0px; 
+  padding: 5px;
+  color: #64ffda;
+}
+
+a.send_icon {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  padding-right: 10px;
+  padding-bottom: 5px;
+  color: #909497;
+}
+
+p.message_content {
+  font-family: Verdana, Geneva, sans-serif;
+  color: black;
+}
+
+strong.username {
+  text-transform: capitalize;
+  font-family: "Arial Black", Gadget, sans-serif;
+  color: cadetblue;
+}
+
+small.time-content {
+  font-family: "Courier New", Courier, monospace;
+}
+
+
 
 /*** Start-Game Css **/
 /*The Modal (background) */
