@@ -42,7 +42,7 @@ angular.module('mean.system')
       game.notification = '';
     } else {
       game.notification = notificationQueue.shift(); // Show a notification and check again in a bit
-      timeout = $timeout(setNotification, 1300);
+      timeout = $timeout(setNotification, 3000);
     }
   };
 
@@ -145,6 +145,15 @@ angular.module('mean.system')
       game.state = data.state;
     }
 
+    if (data.state === 'pick black card') {
+      game.czar = data.czar;
+      if (game.czar === game.playerIndex) {
+        addToNotificationQueue('You are now a Czar, click black card to pop a new question');
+      } else {
+        addToNotificationQueue('Waiting for Czar to pick card');
+      }
+    } else
+
     if (data.state === 'waiting for players to pick') {
       game.czar = data.czar;
       game.curQuestion = data.curQuestion;
@@ -169,6 +178,7 @@ angular.module('mean.system')
       }
     } else if (data.state === 'winner has been chosen' &&
               game.curQuestion.text.indexOf('<u></u>') > -1) {
+      game.czar = data.czar;
       game.curQuestion = data.curQuestion;
     } else if (data.state === 'awaiting players') {
       joinOverrideTimeout = $timeout(function() {
@@ -237,6 +247,10 @@ angular.module('mean.system')
   };
 
   decrementTime();
+
+  game.startNextRound = () => {
+    socket.emit('selectBlackCard');
+  };
 
   return game;
 }]);

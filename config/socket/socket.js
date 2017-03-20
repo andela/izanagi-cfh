@@ -33,7 +33,7 @@ module.exports = function(io) {
       if (allGames[socket.gameID]) {
         allGames[socket.gameID].pickWinning(data.card,socket.id);
       } else {
-        console.log('Received pickWinning from',socket.id, 'but game does not appear to exist!');
+        console.log('Received pickWinning from', socket.id, 'but game does not appear to exist!');
       }
     });
 
@@ -72,6 +72,10 @@ module.exports = function(io) {
     socket.on('disconnect', function(){
       console.log('Rooms on Disconnect ', io.sockets.manager.rooms);
       exitGame(socket);
+    });
+
+    socket.on('selectBlackCard', () => {
+      allGames[socket.gameID].startNextRound(allGames[socket.gameID]);
     });
   });
 
