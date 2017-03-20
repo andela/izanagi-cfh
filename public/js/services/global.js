@@ -78,9 +78,26 @@ angular.module('mean.system')
     return {
       getPlayers: (inviteeUsername) => {
         const deferred = $q.defer();
+        console.log('anything')
         $http.get(`/api/search/users/${inviteeUsername}`)
           .success((data, status, headers, config) => {
             deferred.resolve(data, status, headers, config);
+          }).error((err) => {
+            deferred.reject(err);
+          });
+        return deferred.promise;
+      }
+    };
+  }])
+  .factory('invitePlayer', ['$http', '$q', ($http, $q) => {
+    return {
+      sendMail: (invitedUserEmail, gameUrl) => {
+        console.log('dd')
+        const deferred = $q.defer();
+        $http.post('/api/invite/user', { email: invitedUserEmail, link: gameUrl },
+          { headers: { 'Content-Type': 'application/json' } })
+          .success((res) => {
+            deferred.resolve(res);
           }).error((err) => {
             deferred.reject(err);
           });

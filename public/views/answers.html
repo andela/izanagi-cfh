@@ -49,7 +49,7 @@
   <div id="inner-info">
     <div id="searchContainer" class="col-lg-6" style="margin: 5% 25%; display: none">
       <div class="input-group">
-        <input type="text" class="form-control" ng-keyup="playerSearch()" ng-model="inviteeEmail" placeholder="Search for friends to invite">
+        <input type="text" class="form-control" ng-keypress="playerSearch(inviteeEmail)" ng-model="inviteeEmail" placeholder="Search for friends to invite">
         <span class="input-group-btn">
           <button class="btn-color btn" type="button" ng-click="sendInvite()">Invite</button>
         </span>

@@ -1,5 +1,5 @@
 angular.module('mean.system')
-.controller('GameController', ['$scope', 'game', '$timeout', '$location', 'MakeAWishFactsService', '$dialog', 'playerSearch', function ($scope, game, $timeout, $location, MakeAWishFactsService, $dialog, playerSearch) {
+.controller('GameController', ['$scope', 'game', '$timeout', '$location', 'MakeAWishFactsService', '$dialog', 'playerSearch', 'invitePlayer', function ($scope, game, $timeout, $location, MakeAWishFactsService, $dialog, playerSearch, invitePlayer) {
     $scope.hasPickedCards = false;
     $scope.winningCardPicked = false;
     $scope.showTable = false;
@@ -9,7 +9,11 @@ angular.module('mean.system')
     var makeAWishFacts = MakeAWishFactsService.getMakeAWishFacts();
     $scope.makeAWishFact = makeAWishFacts.pop();
     $scope.searchResults = [];
-    $scope.inviteeEmail = '';
+    $scope.inviteeUserName = '';
+    $scope.inviteeUserEmail = '';
+    $scope.invitedPlayerName = '';
+    $scope.invitedPlayers = [];
+    $scope.firstPlayer = false;
 
     $scope.pickCard = function(card) {
       if (!$scope.hasPickedCards) {
@@ -180,16 +184,31 @@ angular.module('mean.system')
     });
 
     $scope.sendInvite = () => {
-      $scope.searchResults = [];
-      $scope.inviteeEmail = '';
-      if (game.players.length >= game.playerMaxLimit) {
-        $('#playerMaximumAlert').modal('show');
-      }
-    }
+      if (!$scope.invitedPlayers.includes($scope.inviteeEmail)) {
+        if ($scope.invitedPlayers.length === game.playerMaxLimit - 1) {
+          $('#playerMaximumAlert').modal('show');
+        }
+        invitePlayer.sendMail($scope.inviteeEmail, document.URL).then((data) => {
+          if (!data === false) {
+            $scope.invitedPlayers.push($scope.inviteeEmail);
+            $scope.invitedPlayerName = $scope.inviteeUserName;
+            $scope.searchResults = [];
+            $scope.inviteeEmail = '';
+            $scope.inviteeUserName = '';
+          }
+        });
+      } else {
+        $('#playerAlreadyInvited').modal('show');
 
-    $scope.playerSearch = () => {
-      if ($scope.inviteeEmail !== '') {
-        playerSearch.getPlayers($scope.inviteeEmail).then((data) => {
+        $scope.searchResults = [];
+        $scope.inviteeUserEmail = '';
+        $scope.inviteeUserName = '';
+      }
+    };
+
+    $scope.playerSearch = (inviteeEmail) => {
+      if (inviteeEmail !== '') {
+        playerSearch.getPlayers(inviteeEmail).then((data) => {
           $scope.searchResults = data;
         });
       } else {

@@ -1,7 +1,7 @@
 var async = require('async');
 
 module.exports = function(app, passport, auth) {
-    //User Routes
+    // User Routes
     var users = require('../app/controllers/users');
 
     app.get('/signin', users.signin);
@@ -96,4 +96,12 @@ module.exports = function(app, passport, auth) {
     const search = require('../app/controllers/search');
     app.get('/api/search/users/:inviteeUsername', search.users);
 
+    var startGame = require('../app/controllers/start-game');
+    app.get('/api/games/:id', startGame.getGameRecords);
+    app.post('/api/games/:id/start', startGame.saveRecords);
+    app.post('/api/games/:id/end', startGame.updateRecords);
+
+    // Mail Invite Route
+    const mailer = require('../app/controllers/mailer');
+    app.post('/api/invite/user', mailer.invite);
 };

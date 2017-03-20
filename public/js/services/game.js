@@ -189,6 +189,32 @@ angular.module('mean.system')
     socket.emit('startGame');
   };
 
+  game.saveGame = () => {
+    socket.emit('startGame');
+    if (window.user) {
+      $http({
+        method: 'POST',
+        url: `/api/games/${game.gameID}/start`,
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        data: {
+          gameID: game.gameID,
+          players: game.players,
+          completed: false,
+          rounds: 0,
+          winner: ''
+        }
+      })
+        .success((res) => {
+          return res;
+        })
+        .error((err) => {
+          return err;
+        });
+    }
+  };
+
   game.leaveGame = function() {
     game.players = [];
     game.time = 0;

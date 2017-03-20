@@ -9,7 +9,7 @@ const User = mongoose.model('User');
  * @returns {Object} returns JSON object of users
  */
 exports.users = (req, res) => {
-  const query = req.params.inviteeUserName || '';
+  const query = req.params.inviteeEmail || '';
   User.find({ name: new RegExp(query, 'i') }).limit(10)
     .exec((err, result) => {
       if (err) {
