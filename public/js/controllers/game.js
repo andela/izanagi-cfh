@@ -10,10 +10,8 @@ angular.module('mean.system')
     $scope.makeAWishFact = makeAWishFacts.pop();
     $scope.searchResults = [];
     $scope.inviteeUserName = '';
-    $scope.inviteeUserEmail = '';
     $scope.invitedPlayerName = '';
     $scope.invitedPlayers = [];
-    $scope.firstPlayer = false;
     $scope.chat = game.gameChat;
 
 

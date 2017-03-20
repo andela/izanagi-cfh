@@ -91,7 +91,6 @@ angular.module('mean.system')
   .factory('invitePlayer', ['$http', '$q', ($http, $q) => {
     return {
       sendMail: (invitedUserEmail, gameUrl) => {
-        console.log('dd')
         const deferred = $q.defer();
         $http.post('/api/invite/user', { email: invitedUserEmail, link: gameUrl },
           { headers: { 'Content-Type': 'application/json' } })
