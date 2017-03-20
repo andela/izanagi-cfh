@@ -1621,121 +1621,6 @@ img::-moz-selection {
   background: transparent;
 }
 
-h1 {
-	font-family: "Abel", Arial, sans-serif;
-	font-weight: 400;			
-	font-size: 50px;
-	color: darkslategray;
-}
-h3 {
-	font-family: "Abel", Arial, sans-serif;
-	font-weight: 200;			
-	font-size: 40px;
-}
-.panel {
-	background-color: lightseagreen;
-	opacity: 0.9;
-	border-color: darkcyan;
-	color: black;
-	margin-top: 90px;
-	padding: 20px 100px;
-	margin-bottom: 70px;
-	
-	/*margin-left: 10px;*/
-}
-.btn-green{
-	background-color: green;
-}
-.my-logo{
-	font-size: 40px;
-	font-weight: 60px;
-	font-family: 'Fugaz One', cursive;
-	font-family: 'Jockey One', sans-serif;
-	font-family: 'Carter One', cursive;
-	font-family: 'Fontdiner Swanky', cursive;
-}
-.light{
-	color: grey;
-}
-
-.cards{
-	background-color: black;
-	color: antiquewhite;
-	height: 250px;
-  position: relative
-}
-
-.cards p {
-  margin-left: auto;
-  margin-right: auto;
-  width: 5em;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  margin-right: -50%;
-  transform: translate(-50%, -50%)
-}
-.clear {
-	clear: both;
-}
-.img{
-	height: 100px;
-	border-radius: 10px;
-}
-#impact{
-	background-color: antiquewhite;
-	color: darkolivegreen;
-	height: 180px;
-	border-radius: 10px;
-}
-#amount-raised{
-	display: inline;
-}
-#small{
-	font-size: 12px;
-	float:right;
-	margin-right: -5px;
-	margin-bottom: 20px;
-	color: grey;
-	font-weight: 100px;
-}
-#amount{
-	font-size: 35px;
-	float:left;
-	margin-left: 7px;
-	margin-top: -3px;
-	font-weight: 120px;
-	color: black;
-} 
-#donate-now{
-	display: inline;
-	
-}
-#a-donate{
-	font-size: 20px;
-	margin-bottom: 40px;
-	background: orange;
-	color: antiquewhite;
-	border: 0 none;
-
-}
-#a-donate:hover{
-	outline: navajowhite;
-	color: black;
-}
-#donate-logo{
-	float:right;
-	width: 60px;
-	height: 100px;
-	margin-bottom: -35px;
-	background: url(../img/give.png) no-repeat;
-}
-#cr{
-	margin-top: -25px;
-}
-#footer{
-	font-size: 10px;
-}
 /*CSS FOR CZAR-PICK-BLACK-CARD*/
 .card-face { 
   width: 200px;
@@ -1925,6 +1810,115 @@ h3 {
   color: rgb(143, 153, 214);
 }
 /**** END NEW LANDING PAGE ****/
+
+
+/*chat styles*/
+div.chatpanel {
+  position: fixed;
+  bottom: 0px;
+  width: 340px;
+  right: 0;
+  background: #f6f6f6;
+  box-shadow: 3px 0px 3px 0px rgba(50, 50, 50, 0.5);
+}
+
+@media screen and (max-width:650px){
+  div.chatpanel {
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+    right: 0;
+    background: #f6f6f6;
+    box-shadow: 3px 0px 3px 0px rgba(50, 50, 50, 0.5);
+  }
+}
+
+div.panel-heading {
+  height: 25px;
+  padding: 5px;
+  background: #212f3c;
+  color: #64ffda;
+}
+
+li.message:hover {
+  background: #f2f3f4;
+}
+
+li.message {
+  padding: 0px 10px;
+}
+
+div.chatthread {
+  overflow-y: scroll;
+  height: 300px;
+  width: 100%;
+  margin-bottom:40px;
+  background: white;
+}
+
+div.chat_body {
+  margin-top: -15px;
+}
+p.message_content {
+  margin-top: -8px;
+}
+
+div.chatinput {
+  width: calc(100% - 10px);
+  position: absolute;
+  padding: 5px;
+  background: #212f3c; 
+  bottom: 0;
+  left: 0;
+}
+
+input.chat_message {
+  outline: none;
+  width: calc(100% - 60px);
+  background: white;
+  padding: 0px 30px;
+  height: 35px;
+  color: black;
+
+}
+small.message_notification {
+  color: lightgreen;
+  position: absolute;
+  left: 30px;
+  bottom: 10px;
+}
+
+a.retract_button {
+  position: absolute;
+  right: 0px; 
+  padding: 5px;
+  color: #64ffda;
+}
+
+a.send_icon {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  padding-right: 10px;
+  padding-bottom: 5px;
+  color: #909497;
+}
+
+p.message_content {
+  font-family: Verdana, Geneva, sans-serif;
+  color: black;
+}
+
+strong.username {
+  text-transform: capitalize;
+  font-family: "Arial Black", Gadget, sans-serif;
+  color: cadetblue;
+}
+
+small.time-content {
+  font-family: "Courier New", Courier, monospace;
+}
+
 
 
 /*** Start-Game Css **/
