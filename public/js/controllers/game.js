@@ -248,4 +248,61 @@ angular.module('mean.system')
       game.joinGame();
     }
 
+    $scope.tour = () => {
+      console.log('Taking you on a tour....');
+
+      const tour = {
+        id: "hello-hopscotch",
+        steps: [
+          {
+            title: "Timer",
+            content: "People are choosing their answers...",
+            target: "timer-container",
+            placement: "right"
+          },
+          {
+            title: "Finding Players",
+            content: "You have to be a minimum of 3 to play the game.",
+            target: "loading-container",
+            placement: "top"
+          },
+          {
+            title: "How to Play",
+            content: "Here you can learn all about how to play the game.",
+            target: "lobby-how-to-play",
+            placement: "right"
+          },
+          {
+            title: "Avatar",
+            content: "Check your Avatar here",
+            target: "avatar_",
+            placement: "left"
+          },
+          {
+            title: "Chat Panel",
+            content: "Here you can chat with fellow players.",
+            target: "chatwindow",
+            placement: "top"
+          },
+          {
+            title: "Abandon Game",
+            content: "Here you can leave the game anytime you wish",
+            target: "abandon-game-button",
+            placement: "left"
+          },
+          {
+            title: "You're all set!",
+            content: "Now go kick some ass.",
+            target: "second-word",
+            placement: "bottom"
+          }
+        ]
+      };
+
+      // Start the tour!
+      hopscotch.startTour(tour);
+    }
+
+    //$scope.tour();
+
 }]);

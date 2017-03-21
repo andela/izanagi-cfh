@@ -11,6 +11,10 @@
     margin-bottom: 20px;
  }
 
+#tourbtn {
+    margin-top: -150px;
+}
+
  #landing-charity {
    width: 300px !important;
    margin-left: 15px !important;
@@ -1622,7 +1626,7 @@ img::-moz-selection {
 }
 
 /*CSS FOR CZAR-PICK-BLACK-CARD*/
-.card-face { 
+.card-face {
   width: 200px;
   height: 220px;
   margin-left: 40%;
@@ -1867,7 +1871,7 @@ div.chatinput {
   width: calc(100% - 10px);
   position: absolute;
   padding: 5px;
-  background: #212f3c; 
+  background: #212f3c;
   bottom: 0;
   left: 0;
 }
@@ -1890,7 +1894,7 @@ small.message_notification {
 
 a.retract_button {
   position: absolute;
-  right: 0px; 
+  right: 0px;
   padding: 5px;
   color: #64ffda;
 }
