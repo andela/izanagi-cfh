@@ -1,5 +1,5 @@
 angular.module('mean.system')
-  .factory('game', ['socket', '$timeout', function (socket, $timeout) {
+  .factory('game', ['socket', '$timeout', 'chat',  function (socket, $timeout, chat) {
 
   var game = {
     id: null, // This player's socket ID, so we know who this player is
@@ -20,7 +20,8 @@ angular.module('mean.system')
     curQuestion: null,
     notification: null,
     timeLimits: {},
-    joinOverride: false
+    joinOverride: false,
+    gameChat: chat
   };
 
   var notificationQueue = [];
@@ -41,7 +42,7 @@ angular.module('mean.system')
       game.notification = '';
     } else {
       game.notification = notificationQueue.shift(); // Show a notification and check again in a bit
-      timeout = $timeout(setNotification, 1300);
+      timeout = $timeout(setNotification, 3000);
     }
   };
 
@@ -86,6 +87,12 @@ angular.module('mean.system')
     }
 
     var newState = (data.state !== game.state);
+
+    //update our chat service properties
+    game.gameChat.setChatUsername(data.players[game.playerIndex].username);
+    game.gameChat.setChatGroup(data.gameID);
+    game.gameChat.listenForMessages();
+    game.gameChat.clearMessageHistory();
 
     //Handle updating game.time
     if (data.round !== game.round && data.state !== 'awaiting players' &&
@@ -138,6 +145,15 @@ angular.module('mean.system')
       game.state = data.state;
     }
 
+    if (data.state === 'pick black card') {
+      game.czar = data.czar;
+      if (game.czar === game.playerIndex) {
+        addToNotificationQueue('You are now a Czar, click black card to pop a new question');
+      } else {
+        addToNotificationQueue('Waiting for Czar to pick card');
+      }
+    } else
+
     if (data.state === 'waiting for players to pick') {
       game.czar = data.czar;
       game.curQuestion = data.curQuestion;
@@ -162,6 +178,7 @@ angular.module('mean.system')
       }
     } else if (data.state === 'winner has been chosen' &&
               game.curQuestion.text.indexOf('<u></u>') > -1) {
+      game.czar = data.czar;
       game.curQuestion = data.curQuestion;
     } else if (data.state === 'awaiting players') {
       joinOverrideTimeout = $timeout(function() {
@@ -189,6 +206,32 @@ angular.module('mean.system')
     socket.emit('startGame');
   };
 
+  game.saveGame = () => {
+    socket.emit('startGame');
+    if (window.user) {
+      $http({
+        method: 'POST',
+        url: `/api/games/${game.gameID}/start`,
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        data: {
+          gameID: game.gameID,
+          players: game.players,
+          completed: false,
+          rounds: 0,
+          winner: ''
+        }
+      })
+        .success((res) => {
+          return res;
+        })
+        .error((err) => {
+          return err;
+        });
+    }
+  };
+
   game.leaveGame = function() {
     game.players = [];
     game.time = 0;
@@ -204,6 +247,10 @@ angular.module('mean.system')
   };
 
   decrementTime();
+
+  game.startNextRound = () => {
+    socket.emit('selectBlackCard');
+  };
 
   return game;
 }]);

@@ -1,5 +1,5 @@
 angular.module('mean.system')
-.controller('GameController', ['$scope', 'game', '$timeout', '$location', 'MakeAWishFactsService', '$dialog', function ($scope, game, $timeout, $location, MakeAWishFactsService, $dialog) {
+.controller('GameController', ['$scope', 'game', '$timeout', '$location', 'MakeAWishFactsService', function ($scope, game, $timeout, $location, MakeAWishFactsService) {
     $scope.hasPickedCards = false;
     $scope.winningCardPicked = false;
     $scope.showTable = false;
@@ -8,6 +8,59 @@ angular.module('mean.system')
     $scope.pickedCards = [];
     var makeAWishFacts = MakeAWishFactsService.getMakeAWishFacts();
     $scope.makeAWishFact = makeAWishFacts.pop();
+    $scope.chat = game.gameChat;
+
+
+    /**
+    * Method to scroll the chat thread to the bottom
+    * so user can see latest message when messages overflow
+    * @return{undefined}
+    */
+    const scrollChatThread = () => {
+      const chatResults = document.getElementById('results');
+      chatResults.scrollTop = chatResults.scrollHeight;
+    };
+
+    $scope.$watchCollection('chat.messageArray', (newValue, oldValue) => {
+      $timeout(() => {
+        scrollChatThread();
+      }, 100);
+    });
+
+    /**
+    * Method to send messages
+    * @param{String} userMessage - String containing the message to be sent
+    * @return{undefined}
+    */
+    $scope.sendMessage = (userMessage) => {
+      $scope.chat.postGroupMessage(userMessage);
+      $scope.chatMessage = '';
+    };
+
+    /**
+    * Method to send messages when Enter button is pressed
+    * @param{String} userMessage - String containing the message to be sent
+    * @return{undefined}
+    */
+    $scope.keyPressed = function ($event) {
+      const keyCode = $event.which || $event.keyCode;
+      if (keyCode === 13) {
+        $scope.sendMessage($scope.chatMessage);
+      }
+    };
+
+    /**
+    * Method to show chat window
+    * @param{String} userMessage - String containing the message to be sent
+    * @return{undefined}
+    */
+    $scope.showChat = function () {
+      $scope.chat.chatWindowVisible = !$scope.chat.chatWindowVisible;
+      // enableChatWindow;
+      if ($scope.chat.chatWindowVisible) {
+        $scope.chat.unreadMessageCount = 0;
+      }
+    };
 
     $scope.pickCard = function(card) {
       if (!$scope.hasPickedCards) {
@@ -171,6 +224,20 @@ angular.module('mean.system')
         }
       }
     });
+
+  $scope.startNextRound = () => {
+    if ($scope.isCzar()) {
+      game.startNextRound();
+    }
+  };
+  $scope.flipCards = () => {
+    const card = angular.element(document.getElementsByClassName('card-stack'));
+    card.addClass('slide');
+    $timeout(() => {
+      $scope.startNextRound();
+      card.removeClass('slide');
+    }, 4000);
+  };
 
     if ($location.search().game && !(/^\d+$/).test($location.search().game)) {
       console.log('joining custom game');
