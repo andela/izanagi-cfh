@@ -1,7 +1,7 @@
 <div class="chatpanel" id="chatwindow">                
   <div class="panel-heading">
-    <i class="material-icons">forum</i><small class="message_notification" ng-show="chat.unreadMessageCount > 0">{{chat.unreadMessageCount + ' new message'}}</small>
-    <a href="" class="retract_button" ng-click="showChat()"><i class="material-icons">{{chat.chatWindowVisible ? 'close window': 'expand window' }}</i></a>
+    <i class="material-icons">forum</i><small class="mdl-badge message_notification" ng-show="chat.unreadMessageCount > 0">{{chat.unreadMessageCount + ' new message'}}</small>
+    <a href="" class="retract_button" ng-click="showChat()"><i class="material-icons">expand_{{chat.chatWindowVisible ? 'more': 'less' }}</i></a>
   </div>
   <div ng-show="chat.chatWindowVisible">
     <div id="results" class="chatthread">
@@ -9,18 +9,25 @@
         <li ng-repeat="message in chat.messageArray" class="message">
           <div class="chat_body">
             <span class="mdl-list__item-primary-content">
+              <div id="usernameChatInfo">
               <strong class="username">{{message.username}}</strong>
-              <small class="text-muted time-content">{{message.time}}</small></b></span>
-              <p class="message_content">{{message.text}}</p>
+              <small class="text-muted time-content">{{message.time}}</small></b></span></div>
+              <p class="message_content talktext">{{message.text}}</p>
           </div>
         </li>
       </ul>
     </div>
     <div>
       <div class="chatinput">
-          <input id="text" type="text" class="mdl-textfield__input chat_message" placeholder="Enter Message" ng-model="chatMessage" ng-keypress="keyPressed($event)"/>
-          <a class="send_icon" href="" ng-click="sendMessage(chatMessage)"><i class="material-icons">send</i></a>
+        <p class="lead emoji-picker-container">
+          <input data-emojiable="true" data-emoji-input="unicode" id="text" type="text" class="mdl-textfield__input chat_message" placeholder="Enter Message" ng-model="chatMessage" ng-keypress="keyPressed($event)" />
+          <a class="send_icon" href="" onclick="angular.element(document.getElementById('text')).scope().sendMessage(document.getElementById('text').value)"><i class="material-icons">send</i></a>      
+        </p>
       </div>
     </div>
   </div>
 </div>
+<<<<<<< HEAD
+=======
+ <script src="/js/emoji-init.js"></script>
+>>>>>>> 00ed2fd55c38fa2b28f328e78efb7434aaee5757
