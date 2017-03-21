@@ -1,5 +1,5 @@
 angular.module('mean.system')
-.controller('GameController', ['$scope', 'game', '$timeout', '$location', 'MakeAWishFactsService', function ($scope, game, $timeout, $location, MakeAWishFactsService) {
+.controller('GameController', ['$scope', 'game', '$timeout', '$location', 'MakeAWishFactsService', '$http', function ($scope, game, $timeout, $location, MakeAWishFactsService, $http) {
     $scope.hasPickedCards = false;
     $scope.winningCardPicked = false;
     $scope.showTable = false;
@@ -11,6 +11,12 @@ angular.module('mean.system')
     $scope.chat = game.gameChat;
 
 
+    $scope.allGameRecords = () => {
+      $http.post('/api/games/history').then((games) => {
+       $scope.allGameData = games.data;
+      }, (err) => {
+        console.log(err.data); });
+    };
     /**
     * Method to scroll the chat thread to the bottom
     * so user can see latest message when messages overflow

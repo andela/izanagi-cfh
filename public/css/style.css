@@ -1961,3 +1961,16 @@ small.time-content {
   margin-left: 35%;
 }
 /*** End of  Start-Game Css **/
+
+/** start of game-log  css **/
+#gameLogButton {
+  color: white;
+  font-weight: bold;
+  background-color: #3F51B5;
+  ;
+}
+.removeModalScroll {
+  margin: -15% auto;
+  /*overflow: hidden;*/
+}
+/** end of game-log  css **/

@@ -9,7 +9,7 @@ const Schema = mongoose.Schema;
  */
 const RecordSchema = new Schema({
   gameID: String,
-  players: [],
+  players: [{ type: Schema.Types.ObjectId, ref: 'User' }],
   completed: Boolean,
   rounds: Number,
   winner: String
