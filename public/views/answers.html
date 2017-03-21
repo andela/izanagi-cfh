@@ -1,3 +1,23 @@
+<div class="modal fade" tabindex="-1" role="dialog" id="playerMaximumAlert">
+  <div class="modal-dialog playerLimitAlert" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h3 class="modal-title" id="exampleModalLabel" style="color:black">Maximum of {{game.playerMaxLimit}} players are allowed per game</h3>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" tabindex="-1" role="dialog" id="playerAlreadyInvited">
+  <div class="modal-dialog playerLimitAlert" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="exampleModalLabel2" style="color:black">This player has already been invited</h4>
+      </div>
+    </div>
+  </div>
+</div>
 <div ng-cloak id="cards-container" ng-hide="game.state === 'game ended' || game.state ==='game dissolved'">
   <div id="social-bar-container">
     <player></player>
@@ -27,6 +47,19 @@
 
 <div id="info-container" ng-show="game.state === 'awaiting players'">
   <div id="inner-info">
+    <div ng-if ="invitedPlayerName != ''" style="margin-top: 2px;">{{invitedPlayerName}} has been sent an invite.</div>
+    <div ng-if ="wrongEmail != ''" style="margin-top: 2px;">{{wrongEmail}} is an invalid email format.</div>
+    <div id="searchContainer" class="col-lg-6" style="margin: 5% 25%; display: none">
+      <div class="input-group">
+        <input type="text" class="form-control" ng-keypress="playerSearch(inviteeEmail)" ng-model="inviteeEmail" placeholder="Search for friends to invite">
+        <span class="input-group-btn">
+          <button class="btn-color btn" type="button" ng-click="sendInvite()">Invite</button>
+        </span>
+      </div>
+      <div ng-if="searchResults.length !== 0" style="height: 135px; background-color: lightgray; text-align: left; overflow: scroll; border-radius: 2px 2px 4px 4px">
+        <div class="search-result" ng-repeat="result in searchResults" ng-click="selectEmail(result.email)">{{result.email}}</div>
+      </div>
+    </div>
     <div id="lobby-how-to-play">How To Play</div>
     <ol id="oh-el">
       <li>Each player begins with, and will always have, 10 white answer cards.</li>
