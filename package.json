@@ -36,7 +36,7 @@
     "jsonwebtoken": "^7.3.0",
     "mean-logger": "~0.0.1",
     "mongoose": "^4.8.4",
-    "nodemailer": "^3.1.7",
+    "nodemailer": "^3.1.8",
     "nodemailer-smtp-transport": "^2.7.2",
     "passport": "~0.1.17",
     "passport-facebook": "~2.0.0",
