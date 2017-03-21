@@ -12,6 +12,7 @@ angular.module('mean.system')
     $scope.inviteeUserName = '';
     $scope.invitedPlayerName = '';
     $scope.invitedPlayers = [];
+    $scope.wrongEmail = [];
     $scope.chat = game.gameChat;
 
 
@@ -241,12 +242,16 @@ angular.module('mean.system')
           $('#playerMaximumAlert').modal('show');
         }
         invitePlayer.sendMail($scope.inviteeEmail, document.URL).then((data) => {
-          if (!data === false) {
+          if (data instanceof Array) {
             $scope.invitedPlayers.push($scope.inviteeEmail);
-            $scope.invitedPlayerName = $scope.inviteeUserName;
+            $scope.invitedPlayerName = $scope.inviteeEmail;
             $scope.searchResults = [];
             $scope.inviteeEmail = '';
             $scope.inviteeUserName = '';
+            $scope.wrongEmail = '';
+          } else {
+            $scope.invitedPlayerName = [];
+            $scope.wrongEmail = $scope.inviteeEmail;
           }
         });
       } else {

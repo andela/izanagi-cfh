@@ -1,8 +1,7 @@
-const dotenv = require('dotenv');
+const dotenv = require('dotenv').config();
 const nodemailer = require('nodemailer');
 const smtpTransport = require('nodemailer-smtp-transport');
 exports.invite = (req, res) => {
-    dotenv.config({ silent: true });
     const gameUrl = req.body.link;
     const smtpConfig = {
     host: 'smtp.gmail.com',

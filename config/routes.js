@@ -94,7 +94,7 @@ module.exports = function(app, passport, auth) {
 
     // Search Route
     const search = require('../app/controllers/search');
-    app.get('/api/search/users/:inviteeUsername', search.users);
+    app.get('/api/search/users/:inviteeUsername', search.searchUsers);
 
     var startGame = require('../app/controllers/start-game');
     app.get('/api/games/:id', startGame.getGameRecords);

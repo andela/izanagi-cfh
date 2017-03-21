@@ -44,7 +44,6 @@
     "passport-google-oauth": "~0.1.5",
     "passport-local": "~0.1.6",
     "passport-twitter": "~1.0.2",
-    "sendgrid": "^4.8.4",
     "sinon": "~1.7.3",
     "socket.io": "~0.9.16",
     "socket.io-client": "~0.9.16",
