@@ -1813,6 +1813,14 @@ img::-moz-selection {
 
 
 /*chat styles*/
+#usernameChatInfo {
+  margin-bottom: 10px !important;
+}
+
+.talktext{
+  font-size: 0.8em;
+}
+
 div.chatpanel {
   position: fixed;
   bottom: 0px;
@@ -1834,25 +1842,30 @@ div.chatpanel {
 }
 
 div.panel-heading {
-  height: 25px;
+  height: 35px;
   padding: 5px;
   background: #212f3c;
   color: #64ffda;
 }
 
 li.message:hover {
-  background: #f2f3f4;
+  background: #f2e6ff;
+  border-radius: 5px;
+  width: 70%;
 }
 
 li.message {
   padding: 0px 10px;
+  margin-left: 10px;
+  width: 70%;
+  word-wrap: break-word;
 }
 
 div.chatthread {
   overflow-y: scroll;
   height: 300px;
   width: 100%;
-  padding-top: 30px;
+  padding-top: 20px;
   margin-bottom:40px;
   background: #fff;
 }
