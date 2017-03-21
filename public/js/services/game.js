@@ -12,7 +12,7 @@ angular.module('mean.system')
     table: [],
     czar: null,
     playerMinLimit: 3,
-    playerMaxLimit: 6,
+    playerMaxLimit: 12,
     pointLimit: null,
     state: null,
     round: 0,
@@ -42,7 +42,7 @@ angular.module('mean.system')
       game.notification = '';
     } else {
       game.notification = notificationQueue.shift(); // Show a notification and check again in a bit
-      timeout = $timeout(setNotification, 3000);
+      timeout = $timeout(setNotification, 2600);
     }
   };
 
