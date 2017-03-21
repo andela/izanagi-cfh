@@ -1812,6 +1812,60 @@ img::-moz-selection {
 }
 /**** END NEW LANDING PAGE ****/
 
+/*Start of gaming screen css*/
+#app-container{
+   width: 100% !important;
+   margin-left:45px !important;
+   background-image: url('../img/intro-bg.jpg');
+}
+
+#start-game-button {
+  font-size: 12px !important;
+  background-color: white !important;
+  color: #072f70 !important;
+  background-size:contain !important;
+  box-shadow:3px 3px 10px #333;
+  border-radius: 50px 0px;
+  font-family: sans-serif !important;
+}
+
+.longBlack {
+  background: rgb(143, 153, 214) !important;
+  border: 1px solid rgb(143, 153, 214) !important;
+  border-radius: 0 ! important;
+}
+
+ #social-bar-container {
+   top:0 !important;
+   height: 550px !important;
+   overflow-y: scroll !important;
+   color: #002266;
+}
+
+.card {
+  background-color: white;
+  box-shadow: 2px 2px 5px rgb(143, 153, 214);
+  border: 2px solid white;
+}
+
+#info-container, #czar-blank-container, #game-end-container {
+  border: 2px solid white;
+  border-radius: 2px !important;
+  /*background: rgba(255,255,255,0.1) !important;*/
+  background-color: black !important;
+  opacity: 0.9 !important;
+  color: #000;
+}
+
+#main-container #app-container #social-bar-container #player-container {
+  background-color: white !important;
+}
+
+#inner-info {
+  color: #fff;
+  font-weight: bold;
+}
+
 #abandon-game-button {
   float: right;
   margin-top: 10px;
@@ -1838,6 +1892,7 @@ img::-moz-selection {
   margin-top: 100px;
   width: 70%;
 }
+/*End of gaming screen css*/
 
 /*chat styles*/
 div.chatpanel {
@@ -1863,8 +1918,9 @@ div.chatpanel {
 div.panel-heading {
   height: 25px;
   padding: 5px;
-  background: #212f3c;
-  color: #64ffda;
+  background: rgb(143, 153, 214);
+  color: #f2f3f4;
+  text-decoration: none
 }
 
 li.message:hover {
@@ -1880,7 +1936,7 @@ div.chatthread {
   height: 300px;
   width: 100%;
   margin-bottom:40px;
-  background: white;
+  background: #fff;
 }
 
 div.chat_body {
@@ -1894,7 +1950,7 @@ div.chatinput {
   width: calc(100% - 10px);
   position: absolute;
   padding: 5px;
-  background: #212f3c; 
+  background: rgb(143, 153, 214);
   bottom: 0;
   left: 0;
 }
@@ -1902,7 +1958,7 @@ div.chatinput {
 input.chat_message {
   outline: none;
   width: calc(100% - 60px);
-  background: white;
+  background: #fff;
   padding: 0px 30px;
   height: 35px;
   color: black;
@@ -1922,13 +1978,23 @@ a.retract_button {
   color: #64ffda;
 }
 
+a.retract_button:hover {
+  text-decoration: none;
+  font-size: 1.1em;
+}
+
 a.send_icon {
   position: absolute;
   right: 0;
   bottom: 0;
   padding-right: 10px;
   padding-bottom: 5px;
-  color: #909497;
+  color: #fff;
+}
+
+a.send_icon:hover {
+  text-decoration: none;
+  font-size: 1.4em;
 }
 
 p.message_content {
