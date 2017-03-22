@@ -19,8 +19,8 @@
  }
 
  .btn-color {
-   	background-color: #eeeeee;
-    color: #072f70
+   	background-color: rgb(143, 153, 214);
+    color: #ffffff;
  }
 
  .clear {
@@ -36,7 +36,10 @@
  }
 
 #tourbtn {
-    margin-top: -150px;
+    margin-top: 20px;
+    background-color: rgb(143, 153, 214);
+    color: #ffffff;
+    border: none;
 }
 
  #landing-charity {
@@ -2002,11 +2005,7 @@ div.chatinput {
   width: calc(100% - 10px);
   position: absolute;
   padding: 5px;
-<<<<<<< HEAD
-  background: #212f3c;
-=======
   background: rgb(143, 153, 214);
->>>>>>> 64d8aa48e93ed031994c6255c102d635c9a76604
   bottom: 0;
   left: 0;
 }
