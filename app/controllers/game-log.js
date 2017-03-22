@@ -7,9 +7,7 @@ const GameRecords = mongoose.model('Records');
 
 
 exports.getUserHistory = (req, res) => {
-  GameRecords.find({})
-  .populate('players')
-  .exec((err, history) => {
+  GameRecords.find({}, (err, history) => {
     if (err) {
       return res.send(err);
     }
