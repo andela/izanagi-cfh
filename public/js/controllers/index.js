@@ -9,7 +9,6 @@ angular.module('mean.system')
   } else {
     $scope.showOptions = true;
   }
-// console.log($scope.showOptions)
     $scope.playAsGuest = function() {
       game.joinGame();
       $location.path('/app');
