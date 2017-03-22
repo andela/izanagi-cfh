@@ -1,3 +1,27 @@
+.search-result:hover {
+   background-color: lightblue;
+ }
+
+ .search-result {
+   color: black;
+   padding: 2px 10px;
+   cursor: pointer;
+   border-top:  1px solid #eeeeee;
+ }
+ 
+ .modal-header {
+   text-align: center;
+   border: none
+ }
+
+ .playerLimitAlert {
+   margin-top: 20%;
+ }
+
+ .btn-color {
+   	background-color: rgb(143, 153, 214);
+    color: #ffffff;
+ }
 
  .clear {
    clear:both;
@@ -10,6 +34,13 @@
  .errMsg {
     margin-bottom: 20px;
  }
+
+#tourbtn {
+    margin-top: 20px;
+    background-color: rgb(143, 153, 214);
+    color: #ffffff;
+    border: none;
+}
 
  #landing-charity {
    width: 300px !important;
@@ -140,6 +171,7 @@
    background: #252525;
    margin: 10px 0;
    padding: 5px;
+   margin-top: 50px;
 }
 
 #landing-logo {
@@ -1622,7 +1654,7 @@ img::-moz-selection {
 }
 
 /*CSS FOR CZAR-PICK-BLACK-CARD*/
-.card-face { 
+.card-face {
   width: 200px;
   height: 220px;
   margin-left: 40%;
@@ -1811,9 +1843,113 @@ img::-moz-selection {
 }
 /**** END NEW LANDING PAGE ****/
 
+/*Start of gaming screen css*/
+#navGameHeader {
+  background-color: #000;
+}
+
+#app-container{
+   width: 100% !important;
+   margin-left:45px !important;
+   background-image: url('../img/intro-bg.jpg');
+}
+
+#start-game-button {
+  font-size: 12px !important;
+  background-color: white !important;
+  color: #072f70 !important;
+  background-size:contain !important;
+  box-shadow:3px 3px 10px #333;
+  border-radius: 50px 0px;
+  font-family: sans-serif !important;
+}
+
+.longBlack {
+  background: rgb(143, 153, 214) !important;
+  border: 1px solid rgb(143, 153, 214) !important;
+  border-radius: 0 ! important;
+}
+
+ #social-bar-container {
+   top:0 !important;
+   height: 550px !important;
+   overflow-y: scroll !important;
+   color: #002266;
+}
+
+.card {
+  background-color: white;
+  box-shadow: 2px 2px 5px rgb(143, 153, 214);
+  border: 2px solid white;
+}
+
+#info-container, #czar-blank-container, #game-end-container {
+  background-color: black !important;
+  opacity: 0.9 !important;
+  color: #000;
+}
+
+#cards-container {
+  border: 2px solid white;
+  border-radius: 2px !important;
+  background-color: black !important;
+  opacity: 0.9 !important;
+  color: #000;
+}
+
+#main-container #app-container #social-bar-container #player-container {
+  background-color: white !important;
+}
+
+#inner-info {
+  color: #fff;
+  font-weight: bold;
+}
+
+.abandon-game-button {
+  float: right;
+  margin-top: 10px;
+  margin-right: 7px;
+  padding-top: 5px;
+  border-radius: 5px;
+  text-align: center;
+  cursor: pointer;
+  height: 30px;
+  width: 13%;
+  background-color: rgb(143, 153, 214);
+}
+
+.abandon-game-button:hover {
+  opacity: 0.8;
+}
+
+#abandon-game-width {
+  width: 15%;
+}
+
+#tweet-container {
+  float: right;
+  margin-right: 20px;
+  margin-top: 15px;
+}
+
+#gameplay-container {
+  margin-top: 100px;
+  width: 70%;
+}
+/*End of gaming screen css*/
 
 /*chat styles*/
+#usernameChatInfo {
+  margin-bottom: 10px !important;
+}
+
+.talktext{
+  font-size: 0.9em;
+}
+
 div.chatpanel {
+  z-index: 1001;
   position: fixed;
   bottom: 0px;
   width: 340px;
@@ -1834,26 +1970,33 @@ div.chatpanel {
 }
 
 div.panel-heading {
-  height: 25px;
+  height: 35px;
   padding: 5px;
-  background: #212f3c;
-  color: #64ffda;
+  background: rgb(143, 153, 214);
+  color: #f2f3f4;
+  text-decoration: none
 }
 
 li.message:hover {
-  background: #f2f3f4;
+  background: #f2e6ff;
+  border-radius: 5px;
+  width: 70%;
 }
 
 li.message {
   padding: 0px 10px;
+  margin-left: 10px;
+  width: 70%;
+  word-wrap: break-word;
 }
 
 div.chatthread {
   overflow-y: scroll;
   height: 300px;
   width: 100%;
+  padding-top: 20px;
   margin-bottom:40px;
-  background: white;
+  background: #fff;
 }
 
 div.chat_body {
@@ -1867,7 +2010,7 @@ div.chatinput {
   width: calc(100% - 10px);
   position: absolute;
   padding: 5px;
-  background: #212f3c; 
+  background: rgb(143, 153, 214);
   bottom: 0;
   left: 0;
 }
@@ -1875,7 +2018,7 @@ div.chatinput {
 input.chat_message {
   outline: none;
   width: calc(100% - 60px);
-  background: white;
+  background: #fff;
   padding: 0px 30px;
   height: 35px;
   color: black;
@@ -1890,18 +2033,24 @@ small.message_notification {
 
 a.retract_button {
   position: absolute;
-  right: 0px; 
+  right: 0px;
   padding: 5px;
   color: #64ffda;
+}
+
+a.retract_button:hover {
+  text-decoration: none;
+  font-size: 1.1em;
 }
 
 a.send_icon {
   position: absolute;
   right: 0;
   bottom: 0;
-  padding-right: 10px;
-  padding-bottom: 5px;
-  color: #909497;
+}
+
+a.send_icon:hover {
+  text-decoration: none;
 }
 
 p.message_content {
@@ -1974,3 +2123,87 @@ small.time-content {
   /*overflow: hidden;*/
 }
 /** end of game-log  css **/
+
+
+/*Start of Emoji css*/
+.chatinput {
+  background-color: #fff !important;
+  color: #000;
+}
+.emoji-menu {
+  z-index: 999;
+  width: 225px;
+  overflow: hidden;
+  border: 1px #dfdfdf solid;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  overflow: hidden;
+  -webkit-box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.1);
+  margin-right: 140px !important;
+  bottom: 60px !important;
+  margin-top: -170px !important;
+  margin-left: 25% !important;  
+  height: 225px !important;
+  position: absolute !important;
+  bottom: 0 !important;
+  right: 0 !important;
+  transform: translateX(618px) translateY(611px) translateZ(0px) !important;
+}
+.emoji-picker-icon {
+  position: absolute;
+  left: 15px;
+  top: -1px !important;
+  font-size: 20px;
+  -webkit-border-top-left-radius: 5px;
+  -webkit-border-bottom-left-radius: 5px;
+  -moz-border-radius-topleft: 5px;
+  -moz-border-radius-bottomleft: 5px;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  opacity: 0.7;
+  padding-top: 7px !important;
+  z-index: 100;
+  transition: none;
+  color: #000;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+  width: 15px;
+}
+.emoji-wysiwyg-editor {
+  padding: 0 60px 0 40px!important;
+  width: 230px;
+  max-width: 230px;
+  padding-top: 5px !important;
+  padding-right: 35px important;
+  padding-left: 35px;
+  margin-top: 5px;
+  margin-bottom: 0px;
+  min-height: 0 !important;
+  height: 35px;
+  max-height: 54px !important;
+  overflow: auto;
+  line-height: 17px;
+  border: 1px solid #d2dbe3;
+  border-radius: 2px;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  -webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+  transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+  -webkit-user-select: text;
+  word-wrap: break-word;
+  font-size: 0.8em;
+}
+/*End of Emoji Css*/
+
+#gameLogButton {
+  background: rgb(143, 153, 214);
+  float: right;
+  margin-top: 10px;
+  margin-right: 7px;
+}

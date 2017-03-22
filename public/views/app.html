@@ -1,21 +1,26 @@
 <div id="app-container" ng-controller="GameController">
-  <div id="menu-container">
-    <div id="logo">
-      <span id="first-word">Cards</span>
-      <span id="second-word"> for</span>
-      <span id="third-word">Humanity</span>
-    </div>
-    <button id="gameLogButton" data-target="#bs-example-modal-sm" class="btn" data-toggle="modal" ng-click="allGameRecords()">
-      Game Log
-    </button>
-    <div id = 'abandon-game-button' ng-click="abandonGame()">
+
+  <nav class="navbar navbar-custom navbar-fixed-top" id="navGameHeader" role="navigation">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+          Menu <i class="fa fa-bars"></i>
+        </button>
+        <a class="navbar-brand page-scroll" href="#!/page-top">
+          Cards for Humanity
+        </a>
+      </div>
+      
+      <div class='abandon-game-button' id="abandon-game-width" ng-click="abandonGame()">
         Abandon Game
+      </div>
+      <div class='abandon-game-button' data-target="#bs-example-modal-sm" class="btn" data-toggle="modal" ng-click="allGameRecords()">
+        Game Log
+      </div>
     </div>
-    <span id="tweet-container">
-      <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://cfh.io" data-text="Cards for Humanity: A Game for Horrible People Desperately Trying to do Good" data-related="CFH_App">Tweet</a>
-      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-    </span>
-  </div>
+
+  </nav>
+  
   <div id="gameplay-container">
     <div id="upper-gameplay-container">
       <div id="menu-timeremaining-container">
@@ -31,21 +36,11 @@
       </div>
     </div>
     <answers></answers>
+
+
   </div>
   <chat></chat>
   <div ng-include="'./views/game-log.html'">
 </div>
 
-  <!-- The Modal -->
-  <div id="myModal" class="modal-sm">
-    <!-- Modal content -->
-    <div class="modal-content">
-      <div class="modal-head">
-        <span class="close">&times;</span>
-        <h2><span class="header-text">Welcome..</span></h2>
-      </div>
-      <h4><span class="text">You are about starting a new Game Session... A minimum of 3 players is needed to start the game</span></h4>
-    </div>
-  </div>
-</div>
-<script type="text/javascript" src="../js/modal.js"></script>
+

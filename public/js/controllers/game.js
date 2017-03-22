@@ -1,5 +1,6 @@
 angular.module('mean.system')
-.controller('GameController', ['$scope', 'game', '$timeout', '$location', 'MakeAWishFactsService', '$http', '$q', function ($scope, game, $timeout, $location, MakeAWishFactsService, $http, $q) {
+.controller('GameController', ['$scope', 'game', '$timeout', '$location', 'MakeAWishFactsService', 'playerSearch', 'invitePlayer', '$http', 
+function ($scope, game, $timeout, $location, MakeAWishFactsService, playerSearch, invitePlayer, $http) {
     $scope.hasPickedCards = false;
     $scope.winningCardPicked = false;
     $scope.showTable = false;
@@ -8,6 +9,11 @@ angular.module('mean.system')
     $scope.pickedCards = [];
     var makeAWishFacts = MakeAWishFactsService.getMakeAWishFacts();
     $scope.makeAWishFact = makeAWishFacts.pop();
+    $scope.searchResults = [];
+    $scope.inviteeUserName = '';
+    $scope.invitedPlayerName = '';
+    $scope.invitedPlayers = [];
+    $scope.wrongEmail = [];
     $scope.chat = game.gameChat;
 
     /**
@@ -46,7 +52,7 @@ angular.module('mean.system')
     */
     $scope.sendMessage = (userMessage) => {
       $scope.chat.postGroupMessage(userMessage);
-      $scope.chatMessage = '';
+      document.getElementsByClassName('emoji-wysiwyg-editor')[0].innerHTML = '';
     };
 
     /**
@@ -186,7 +192,12 @@ angular.module('mean.system')
     };
 
     $scope.startGame = function() {
-      game.startGame();
+      // game.startGame();
+       if (game.players.length >= game.playerMinLimit) {
+         game.startGame();
+       } else {
+         $('#playerMinimumAlert').modal('show');
+       }
     };
 
     $scope.abandonGame = function() {
@@ -227,15 +238,58 @@ angular.module('mean.system')
           if(!$scope.modalShown){
             setTimeout(function(){
               var link = document.URL;
-              var txt = 'Give the following link to your friends so they can join your game: ';
-              $('#lobby-how-to-play').text(txt);
-              $('#oh-el').css({'text-align': 'center', 'font-size':'22px', 'background': 'white', 'color': 'black'}).text(link);
+              $('#lobby-how-to-play').text(link).hide();
+              $('#oh-el').hide();
+              $('#searchContainer').show();
             }, 200);
             $scope.modalShown = true;
           }
         }
       }
     });
+
+
+    $scope.sendInvite = () => {
+      if (!$scope.invitedPlayers.includes($scope.inviteeEmail)) {
+        if ($scope.invitedPlayers.length >= game.playerMaxLimit - 1) {
+          $('#playerMaximumAlert').modal('show');
+        }
+        invitePlayer.sendMail($scope.inviteeEmail, document.URL).then((data) => {
+          if (data instanceof Array) {
+            $scope.invitedPlayers.push($scope.inviteeEmail);
+            $scope.invitedPlayerName = $scope.inviteeEmail;
+            $scope.searchResults = [];
+            $scope.inviteeEmail = '';
+            $scope.inviteeUserName = '';
+            $scope.wrongEmail = '';
+          } else {
+            $scope.invitedPlayerName = [];
+            $scope.wrongEmail = $scope.inviteeEmail;
+          }
+        });
+      } else {
+        $('#playerAlreadyInvited').modal('show');
+
+        $scope.searchResults = [];
+        $scope.inviteeUserEmail = '';
+        $scope.inviteeUserName = '';
+      }
+    };
+ 
+    $scope.playerSearch = (inviteeEmail) => {
+      if (inviteeEmail !== '') {
+        playerSearch.getPlayers(inviteeEmail).then((data) => {
+          $scope.searchResults = data;
+        });
+      } else {
+        $scope.searchResults = [];
+      }
+    }
+
+    $scope.selectEmail = (selectedEmail) => {
+      $scope.inviteeEmail = selectedEmail;
+      $scope.searchResults = [];
+    }
 
   $scope.startNextRound = () => {
     if ($scope.isCzar()) {
@@ -251,6 +305,7 @@ angular.module('mean.system')
     }, 4000);
   };
 
+
     if ($location.search().game && !(/^\d+$/).test($location.search().game)) {
       console.log('joining custom game');
       game.joinGame('joinGame',$location.search().game);
@@ -259,5 +314,54 @@ angular.module('mean.system')
     } else {
       game.joinGame();
     }
+
+    $scope.tour = () => {
+      
+      const tour = {
+        id: "hello-hopscotch",
+        steps: [
+          {
+            title: "Finding Players",
+            content: "You have to be a minimum of 3 to play the game.",
+            target: "loading-container",
+            placement: "top"
+          },
+          {
+            title: "Timer",
+            content: "Here you can check the time remaining to choose an answer.",
+            target: "timer-container",
+            placement: "right"
+          },
+          {
+            title: "Avatar",
+            content: "Check your Avatar here and see info about other players that have joined the game.",
+            target: "avatar_",
+            placement: "left"
+          },
+          {
+            title: "Chat Panel",
+            content: "Here you can chat with fellow players.",
+            target: "chatwindow",
+            placement: "top"
+          },
+          {
+            title: "Abandon Game",
+            content: "Here you can leave the game when you want",
+            target: "abandon-game-button",
+            placement: "left"
+          },
+          {
+            title: "You are all set!",
+            content: "Click this button to take the tour again anytime you wish",
+            target: "tourbtn",
+            placement: "top"
+          }
+        ]
+      };
+
+      hopscotch.startTour(tour);
+    }
+
+    $scope.tour();
 
 }]);

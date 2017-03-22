@@ -17,7 +17,6 @@ exports.authCallback = function(req, res, next) {
    * Show login form
    */
   exports.signin = function(req, res) {
-
      if (req.body.email && req.body.password) {
      User.findOne({ email: req.body.email }).exec((err, existingUser) => {
        if(err) throw err;

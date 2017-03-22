@@ -92,6 +92,10 @@ module.exports = function(app, passport, auth) {
     app.get('/play', index.play);
     app.get('/', index.render);
 
+    // Search Route
+    const search = require('../app/controllers/search');
+    app.get('/api/search/users/:inviteeUsername', search.searchUsers);
+
     var startGame = require('../app/controllers/start-game');
     app.get('/api/games/:id', startGame.getGameRecords);
     app.post('/api/games/:id/start', startGame.saveRecords);
@@ -100,4 +104,8 @@ module.exports = function(app, passport, auth) {
     // Game logs Routes
     const gameLog = require('../app/controllers/game-log');
     app.post('/api/games/history', gameLog.getUserHistory);
+
+    // Mail Invite Route
+    const mailer = require('../app/controllers/mailer');
+    app.post('/api/invite/user', mailer.invite);
 };
