@@ -9,7 +9,6 @@ angular.module('mean.system')
   } else {
     $scope.showOptions = true;
   }
-console.log($scope.showOptions)
     $scope.playAsGuest = function() {
       game.joinGame();
       $location.path('/app');
@@ -32,7 +31,7 @@ console.log($scope.showOptions)
        $http.post('/api/auth/login', user).then((response) => {
          if(response.data.success) {
            $window.localStorage.setItem('token', response.data.token);
-           $location.path('/');    
+           $location.path('/');
          } else {
            $scope.loginErrMsg = response.data.message;
          }

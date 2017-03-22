@@ -19,8 +19,8 @@
  }
 
  .btn-color {
-   	background-color: #eeeeee;
-    color: #072f70
+   	background-color: rgb(143, 153, 214);
+    color: #ffffff;
  }
 
  .clear {
@@ -34,6 +34,13 @@
  .errMsg {
     margin-bottom: 20px;
  }
+
+#tourbtn {
+    margin-top: 20px;
+    background-color: rgb(143, 153, 214);
+    color: #ffffff;
+    border: none;
+}
 
  #landing-charity {
    width: 300px !important;
@@ -1647,7 +1654,7 @@ img::-moz-selection {
 }
 
 /*CSS FOR CZAR-PICK-BLACK-CARD*/
-.card-face { 
+.card-face {
   width: 200px;
   height: 220px;
   margin-left: 40%;
@@ -2021,7 +2028,7 @@ small.message_notification {
 
 a.retract_button {
   position: absolute;
-  right: 0px; 
+  right: 0px;
   padding: 5px;
   color: #64ffda;
 }

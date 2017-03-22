@@ -6,7 +6,8 @@
     "angular-bootstrap": "~0.8.0",
     "angular-ui-utils": "0.0.4",
     "jquery": "~1.9.1",
-    "underscore": "~1.5.2"
+    "underscore": "~1.5.2",
+    "hopscotch": "^0.2.7"
   },
   "exportsOverride": {
     "bootstrap": {

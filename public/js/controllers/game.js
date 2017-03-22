@@ -262,7 +262,7 @@ angular.module('mean.system')
         $scope.inviteeUserName = '';
       }
     };
-
+ 
     $scope.playerSearch = (inviteeEmail) => {
       if (inviteeEmail !== '') {
         playerSearch.getPlayers(inviteeEmail).then((data) => {
@@ -301,5 +301,54 @@ angular.module('mean.system')
     } else {
       game.joinGame();
     }
+
+    $scope.tour = () => {
+      
+      const tour = {
+        id: "hello-hopscotch",
+        steps: [
+          {
+            title: "Finding Players",
+            content: "You have to be a minimum of 3 to play the game.",
+            target: "loading-container",
+            placement: "top"
+          },
+          {
+            title: "Timer",
+            content: "Here you can check the time remaining to choose an answer.",
+            target: "timer-container",
+            placement: "right"
+          },
+          {
+            title: "Avatar",
+            content: "Check your Avatar here and see info about other players that have joined the game.",
+            target: "avatar_",
+            placement: "left"
+          },
+          {
+            title: "Chat Panel",
+            content: "Here you can chat with fellow players.",
+            target: "chatwindow",
+            placement: "top"
+          },
+          {
+            title: "Abandon Game",
+            content: "Here you can leave the game when you want",
+            target: "abandon-game-button",
+            placement: "left"
+          },
+          {
+            title: "You are all set!",
+            content: "Click this button to take the tour again anytime you wish",
+            target: "tourbtn",
+            placement: "top"
+          }
+        ]
+      };
+
+      hopscotch.startTour(tour);
+    }
+
+    $scope.tour();
 
 }]);
