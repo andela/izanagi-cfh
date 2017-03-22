@@ -303,8 +303,7 @@ angular.module('mean.system')
     }
 
     $scope.tour = () => {
-      console.log('Taking you on a tour....');
-
+      
       const tour = {
         id: "hello-hopscotch",
         steps: [
