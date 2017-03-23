@@ -1,8 +1,10 @@
 angular.module('mean.system')
-.controller('IndexController', ['$scope', '$location', '$window', '$http', 'Global', 'socket', 'game', 'AvatarService', ($scope, $location, $window, $http, Global, socket, game, AvatarService) => {
+.controller('IndexController', ['$scope', '$location', '$window', '$http', 'Global', 'socket', 'game', 'AvatarService', 'dataFactory', ($scope, $location, $window, $http, Global, socket, game, AvatarService, dataFactory) => {
     $scope.global = Global;
     $scope.signupErrMsg = '';
     $scope.loginErrMsg = '';
+    $scope.showEmail = $location.search().email;
+    $scope.gameId = $location.search().game;
 
   if ($window.localStorage.getItem('token')) {
     $scope.showOptions = false;
@@ -78,5 +80,29 @@ angular.module('mean.system')
       .then(function(data) {
         $scope.avatars = data;
       });
+
+
+    if ($window.user !== null) {
+      console.log($scope.email);
+      const email = $scope.email;
+      dataFactory.getNotifications()
+      .success(function(data, status, headers, config) {
+        $scope.notification = data;
+      })
+      .error(function (data, status, headers, config) {
+        $scope.noResult = status;
+      });
+    }
+
+    $scope.readNotification = function(notificationId) {
+      console.log(notificationId);
+      dataFactory.viewNotification(notificationId)
+      .success(function(data, status, headers, config) {
+        $scope.hasRead = data.read;
+      })
+      .error(function (data, status, headers, config) {
+        $scope.noResult = status;
+      });
+    };
 
 }]);
