@@ -1,5 +1,6 @@
 angular.module('mean.system')
-.controller('GameController', ['$scope', 'game', '$timeout', '$location', 'MakeAWishFactsService', 'playerSearch', 'invitePlayer', function ($scope, game, $timeout, $location, MakeAWishFactsService, playerSearch, invitePlayer) {
+.controller('GameController', ['$scope', 'game', '$timeout', '$location', 'MakeAWishFactsService', 'playerSearch', 'invitePlayer', '$http', 
+function ($scope, game, $timeout, $location, MakeAWishFactsService, playerSearch, invitePlayer, $http) {
     $scope.hasPickedCards = false;
     $scope.winningCardPicked = false;
     $scope.showTable = false;
@@ -15,6 +16,18 @@ angular.module('mean.system')
     $scope.wrongEmail = [];
     $scope.chat = game.gameChat;
 
+    /**
+    * Method consume game history api and get user's donations
+    * @return{undefined}
+    */
+    $scope.allGameRecords = () => {
+      $http.post('/api/games/history').then((games) => {
+        $scope.allGameData = games.data;
+      });
+      const donations = JSON.parse(atob(window.localStorage.getItem('token').split('.')[1])).existingUser.donations;
+      console.log(donations);
+      $scope.donations = donations;
+    };
 
     /**
     * Method to scroll the chat thread to the bottom

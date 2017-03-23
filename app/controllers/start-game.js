@@ -40,8 +40,8 @@ exports.saveRecords = (req, res) => {
     gameID,
     players,
     completed,
-    rounds,
-    winner
+    winner,
+    rounds
   });
 
   gameRecord.save((err, data) => {

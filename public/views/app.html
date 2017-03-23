@@ -1,4 +1,5 @@
 <div id="app-container" ng-controller="GameController">
+
   <nav class="navbar navbar-custom navbar-fixed-top" id="navGameHeader" role="navigation">
     <div class="container">
       <div class="navbar-header">
@@ -9,11 +10,15 @@
           Cards for Humanity
         </a>
       </div>
-
-      <div id='abandon-game-button' ng-click="abandonGame()">
+      
+      <div class='abandon-game-button' id="abandon-game-width" ng-click="abandonGame()">
         Abandon Game
       </div>
+      <div class='abandon-game-button' data-target="#bs-example-modal-sm" class="btn" data-toggle="modal" ng-click="allGameRecords()">
+        Game Log
+      </div>
     </div>
+
   </nav>
   
   <div id="gameplay-container">
@@ -35,6 +40,7 @@
 
   </div>
   <chat></chat>
+  <div ng-include="'./views/game-log.html'">
 </div>
 
 

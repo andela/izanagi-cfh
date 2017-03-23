@@ -5,7 +5,6 @@ var mongoose = require('mongoose'),
   User = mongoose.model('User');
 var avatars = require('./avatars').all();
 const jwt = require('jsonwebtoken');
-
 /**
  * Auth callback
  */
@@ -33,12 +32,12 @@ exports.authCallback = function(req, res, next) {
          if (!validPassword) {
            return res.json({ success: false, message: 'Invalid email or password' });
          } else {
-
             return res.status(200).json({
              success: true,
              message: 'User successfully logged in',
-             "token":  jwt.sign({ id: existingUser.id }, process.env.SECRETKEY, {expiresIn: 60 * 60 * 24 * 7})
+             "token":  jwt.sign({ existingUser }, process.env.SECRETKEY, {expiresIn: 60 * 60 * 24 * 7})
             });
+             
          }
 
        }
