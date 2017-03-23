@@ -1,5 +1,5 @@
 angular.module('mean.system')
-.controller('GameController', ['$scope', 'game', '$timeout', '$location', 'MakeAWishFactsService', 'playerSearch', 'invitePlayer', function ($scope, game, $timeout, $location, MakeAWishFactsService, playerSearch, invitePlayer) {
+.controller('GameController', ['$scope', 'game', '$timeout', '$location', 'MakeAWishFactsService', 'playerSearch', 'invitePlayer', 'dataFactory', function ($scope, game, $timeout, $location, MakeAWishFactsService, playerSearch, invitePlayer, dataFactory) {
     $scope.hasPickedCards = false;
     $scope.winningCardPicked = false;
     $scope.showTable = false;
@@ -14,6 +14,12 @@ angular.module('mean.system')
     $scope.invitedPlayers = [];
     $scope.wrongEmail = [];
     $scope.chat = game.gameChat;
+
+    $scope.isUser = window.user;
+    $scope.friendStatus = true;
+    $scope.appInviteStatus = true;
+    $scope.inviteList = [];
+
 
 
     /**
@@ -290,6 +296,75 @@ angular.module('mean.system')
       $scope.startNextRound();
       card.removeClass('slide');
     }, 4000);
+  };
+
+  $scope.addFriend = (friendEmail) => {
+    const data = {
+      email: friendEmail
+    };
+    dataFactory.addFriend(data)
+    .success((response) => {
+      $scope.friendStatus = false;
+      $scope.friendMessage = response.message;
+      $timeout(() => {
+        $scope.friendStatus = true;
+      }, 5000);
+    })
+    .error((response) => {
+      $scope.friendStatus = false;
+      $scope.friendMessage = response.message;
+      $timeout(() => {
+        $scope.friendStatus = true;
+      }, 5000);
+    });
+  };
+
+  $scope.searchFriends = (word) => {
+    dataFactory.searchUsers(word)
+    .success((data, status, headers, config) => {
+      $scope.searchFriendsResult = data;
+    })
+    .error((data, status, headers, config) => {
+      $scope.badResult = status;
+    });
+  };
+
+  $scope.selectData = (email, id) => {
+    $scope.email = email;
+    $scope.senderId = id;
+  };
+
+  const isValidEmail = (email) => {
+    const emailRegex = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,63}$/i;
+    return emailRegex.test(email);
+  };
+
+  $scope.sendAppInvites = (email) => {
+    if (isValidEmail(email) && $scope.inviteList.indexOf(email) < 0) {
+      $scope.inviteList.push(email);
+      const data = {
+        email: email,
+        link: document.URL,
+        sender: window.user.name,
+        senderId: $scope.isUser._id
+      };
+      dataFactory.sendAppInvites(data)
+      .success((res) => {
+        $scope.inviteMessage = 'Invite sent';
+        $scope.inviteList.push(email);
+        $scope.appInviteStatus = false;
+        $timeout(() => {
+          $scope.appInviteStatus = true;
+        }, 5000);
+      })
+      .error((res) => {
+        $scope.inviteMessage = 'Could not send invite';
+        $scope.appInviteStatus = false;
+        $timeout(() => {
+          $scope.appInviteStatus = true;
+        }, 5000);
+      });
+    }
   };
 
 
