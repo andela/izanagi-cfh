@@ -2182,3 +2182,46 @@ small.time-content {
 }
 /*End of Emoji Css*/
 
+/* Start of Friends-invite*/
+#friends-btn{
+  float: left;
+  margin-top: 10px;
+  padding-top: 5px;
+  border-radius: 5px;
+  text-align: center;
+  cursor: pointer;
+  height: 30px;
+  width: 10%;
+  background-color: rgb(143, 153, 214);
+  margin-left: 10px;
+  border-color: rgb(143, 153, 214);
+}
+#search-text{
+  width: 15%;
+  color: white;
+  height: 30px;
+  font-size: 15px;
+  display: inline;
+  margin: 10px 0 0 10px;
+}
+.search .fa-paper-plane {
+  margin-right:9px;
+  font-size: 25px;
+  color: black;
+  cursor: pointer; cursor: hand;
+  background: rgb(143, 153, 214);
+}
+.fa-plus-circle:before{
+  color: black;
+  cursor: pointer; cursor: hand;
+  font-size: 2em !important;
+}
+#notifications{
+  background: black;
+  color:wheat;
+}
+#friend-status{
+  color: wheat;
+}
+
+
