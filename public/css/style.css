@@ -1906,20 +1906,25 @@ img::-moz-selection {
   font-weight: bold;
 }
 
-#abandon-game-button {
+.abandon-game-button {
   float: right;
   margin-top: 10px;
+  margin-right: 7px;
   padding-top: 5px;
   border-radius: 5px;
   text-align: center;
   cursor: pointer;
   height: 30px;
-  width: 15%;
+  width: 13%;
   background-color: rgb(143, 153, 214);
 }
 
-#abandon-game-button:hover {
+.abandon-game-button:hover {
   opacity: 0.8;
+}
+
+#abandon-game-width {
+  width: 15%;
 }
 
 #tweet-container {
@@ -2106,6 +2111,20 @@ small.time-content {
 }
 /*** End of  Start-Game Css **/
 
+/** start of game-log  css **/
+#gameLogButton {
+  color: white;
+  font-weight: bold;
+  background-color: #3F51B5;
+  ;
+}
+.removeModalScroll {
+  margin: -15% auto;
+  /*overflow: hidden;*/
+}
+/** end of game-log  css **/
+
+
 /*Start of Emoji css*/
 .chatinput {
   background-color: #fff !important;
@@ -2224,4 +2243,9 @@ small.time-content {
   color: wheat;
 }
 
-
+#gameLogButton {
+  background: rgb(143, 153, 214);
+  float: right;
+  margin-top: 10px;
+  margin-right: 7px;
+}

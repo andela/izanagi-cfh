@@ -1,4 +1,5 @@
 <div id="app-container" ng-controller="GameController">
+
   <nav class="navbar navbar-custom navbar-fixed-top" id="navGameHeader" role="navigation">
     <div class="container">
       <div class="navbar-header">
@@ -8,9 +9,6 @@
         <a class="navbar-brand page-scroll" href="#!/page-top">
           Cards for Humanity
         </a>
-      </div>
-      <div id='abandon-game-button' ng-click="abandonGame()">
-        Abandon Game
       </div>
       <span id="friend-status" ng-hide="friendStatus">{{friendMessage}}</span>
         <span class="btn btn-success" id="friends-btn" ng-show="isCustomGame() === true" ng-click="inviteView = !inviteView">Friends<i class="fa fa-plus add-friend" aria-hidden="true"></i></span>
@@ -22,7 +20,15 @@
             <i class="fa fa-paper-plane" aria-hidden="true" ng-click="sendAppInvites(email)"></i>
             <span ng-hide="appInviteStatus" style="font-size: 12px">{{inviteMessage}}</span>
         </span>
+      
+      <div class='abandon-game-button' id="abandon-game-width" ng-click="abandonGame()">
+        Abandon Game
+      </div>
+      <div class='abandon-game-button' data-target="#bs-example-modal-sm" class="btn" data-toggle="modal" ng-click="allGameRecords()">
+        Game Log
+      </div>
     </div>
+
   </nav>
   
   <div id="gameplay-container">
@@ -40,10 +46,9 @@
       </div>
     </div>
     <answers></answers>
-
-
   </div>
   <chat></chat>
+  <div ng-include="'./views/game-log.html'">
 </div>
 
 
