@@ -208,6 +208,7 @@ angular.module('mean.system')
     $scope.abandonGame = function() {
       game.leaveGame();
       $location.path('/');
+      hopscotch.endTour();
     };
 
     // Catches changes to round to update when no players pick card
