@@ -1,5 +1,5 @@
 angular.module('mean.system')
-  .factory('chat', ['env', function (env) {
+  .factory('chat', [() => {
     /**
     * Class to implement chat functionality
     */
@@ -11,7 +11,16 @@ angular.module('mean.system')
       */
       constructor() {
         // declare fire base reference with link to our firebase database
-        this.firebase = new Firebase(env.FIREBASE_URL);
+        const config = {
+          apiKey: 'AIzaSyBG4e8eTQs2nSqj1vzYnb0dGXm8vKi5NlM',
+          authDomain: 'izanagi-cfh-chat.firebaseapp.com',
+          databaseURL: 'https://izanagi-cfh-chat.firebaseio.com',
+          storageBucket: 'izanagi-cfh-chat.appspot.com',
+          messagingSenderId: '511279152310'
+        };
+        firebase.initializeApp(config);
+        this.database = firebase.database();
+
         this.messageArray = [];
         this.enableListener = true;
         this.chatWindowVisible = false;
@@ -49,13 +58,15 @@ angular.module('mean.system')
         // We do not want to send empty messages
         if (messageText !== undefined && messageText.trim().length > 0) {
           // Push message to group thread on firebase
-          const messageObject = {
-            username: this.userName,
-            text: messageText,
-            time: messageTime
-          };
-          this.firebase.child(this.chatGroup)
+          if (this.userName !== undefined) {
+            const messageObject = {
+              username: this.userName,
+              text: messageText,
+              time: messageTime
+            };
+            this.database.ref(this.chatGroup)
             .push(messageObject);
+          }
         }
       }
 
@@ -66,7 +77,7 @@ angular.module('mean.system')
       * @return{undefined}
       */
       clearMessageHistory() {
-        this.firebase.child(this.chatGroup).remove();
+        this.database.ref(this.chatGroup).remove();
       }
 
       /**
@@ -78,9 +89,9 @@ angular.module('mean.system')
         if (!this.enableListener) {
           return;
         }
-        this.firebase.child(this.chatGroup).off();
+        this.database.ref(this.chatGroup).off();
         this.enableListener = false;
-        this.firebase.child(this.chatGroup).on('child_added', (snapshot) => {
+        this.database.ref(this.chatGroup).on('child_added', (snapshot) => {
           const message = snapshot.val();
           this.messageArray.push(message);
           this.updateUnreadMessageCount();
