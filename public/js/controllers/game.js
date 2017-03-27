@@ -67,8 +67,9 @@ angular.module('mean.system')
     */
     $scope.keyPressed = function ($event) {
       const keyCode = $event.which || $event.keyCode;
-      if (keyCode === 13) {
+      if (keyCode === 13 && !$event.shiftKey) {
         $scope.sendMessage($scope.chatMessage);
+        $event.preventDefault();
       }
     };
 
