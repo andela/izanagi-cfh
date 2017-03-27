@@ -71,7 +71,9 @@ Game.prototype.payload = function() {
       avatar: player.avatar,
       premium: player.premium,
       socketID: player.socket.id,
-      color: player.color
+      color: player.color,
+      id: player.id,
+      email: player.email
     });
   });
   return {

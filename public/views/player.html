@@ -17,5 +17,9 @@
   <div id="czar-container" ng-show="currentCzar($index)">
     <span id='the-czar'>CZAR</span>
   </div>
+  <div class="row player-czar">
+      <span ng-show="currentCzar($index)">Czar</span>
+      <i ng-show="player.id" ng-if="player.id !== isUser._id" ng-click="addFriend(player.email)" class="fa fa-plus-circle add-friend" aria-hidden="true"></i>
+  </div>
 </div>
 

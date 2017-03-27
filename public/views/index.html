@@ -68,6 +68,17 @@
                     <li ng-hide="showOptions">
                         <a href="" ng-click="logout()">Sign Out</a>
                     </li>
+                    <li class="page-scroll" ng-hide ="showOptions">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#!/#">
+                            <span class="glyphicon glyphicon-envelope"></span>
+                            <span class="badge">{{notification.length}}</span>
+                            <ul class="dropdown-menu" id="notifications" ng-if="notification.length > 0">
+                                <li ng-repeat="invite in notification" ng-click="readNotification(invite._id)">
+                                    <a ng-class="{ 'unbold': invite.read }" style="color:wheat" class="message-list" href="{{invite.link}}">You have an invite from {{invite.from}} click here to join</a>
+                                </li>
+                            </ul>
+                        </a>
+                    </li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -139,7 +150,7 @@
                 <!-- Teaser Text End -->
                  <div id="sign-up" class="col-md-12">
                     <span ng-show="showOptions">
-                        <a href="/signup"><div id="sign-up-btn-landing">Sign Up</div></a>
+                        <a href="#!/signup"><div id="sign-up-btn-landing">Sign Up</div></a>
                         <div id="sign-up-text"><a href="/play">Or Play as Guest</a>
                         </div>
                     </span>

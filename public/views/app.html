@@ -10,6 +10,16 @@
           Cards for Humanity
         </a>
       </div>
+      <span id="friend-status" ng-hide="friendStatus">{{friendMessage}}</span>
+        <span class="btn btn-success" id="friends-btn" ng-show="isCustomGame() === true" ng-click="inviteView = !inviteView">Friends<i class="fa fa-plus add-friend" aria-hidden="true"></i></span>
+        <span ng-show="inviteView" class="search search-dropdown" id="myDiv">
+          <input type="text" id="search-text" list='list1' ng-model= "email" ng-keyup="searchFriends(email)" placeholder="Search for friends"/>
+            <datalist id="list1" ng-if="email !== ''">
+              <option label='Send Invite' ng-repeat="result in searchFriendsResult" value='{{result.email}}' ng-click="selectData(result.email, result._id)">
+            </datalist>
+            <i class="fa fa-paper-plane" aria-hidden="true" ng-click="sendAppInvites(email)"></i>
+            <span ng-hide="appInviteStatus" style="font-size: 12px">{{inviteMessage}}</span>
+        </span>
       
       <div class='abandon-game-button' id="abandon-game-width" ng-click="abandonGame()">
         Abandon Game
@@ -36,8 +46,6 @@
       </div>
     </div>
     <answers></answers>
-
-
   </div>
   <chat></chat>
   <div ng-include="'./views/game-log.html'">

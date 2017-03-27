@@ -3,6 +3,9 @@ var async = require('async');
 module.exports = function(app, passport, auth) {
     // User Routes
     var users = require('../app/controllers/users');
+    const usersApi = require('../app/controllers/api/users');
+    const appInvites = require('../app/controllers/api/appInvites');
+
 
     app.get('/signin', users.signin);
     app.get('/signup', users.signup);
@@ -108,4 +111,15 @@ module.exports = function(app, passport, auth) {
     // Mail Invite Route
     const mailer = require('../app/controllers/mailer');
     app.post('/api/invite/user', mailer.invite);
+
+    // Add friends api
+    app.post('/api/users/friends', usersApi.addFriend);
+
+    // Search Friends api
+    app.get('/api/users/search/friends/:email', usersApi.searchFriends);
+
+    // Send in-app message api
+    app.post('/api/users/friends/send-invites', appInvites.appNotify);
+    app.get('/api/users/get-notifications', appInvites.getNotifications);
+    app.put('/api/users/notifications/:notificationId', appInvites.viewNotification);
 };
